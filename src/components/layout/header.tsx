@@ -45,7 +45,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper/95 backdrop-blur-sm">
       <Sheet open={open} onOpenChange={setOpen}>
-        <div className="mx-auto flex max-w-[min(1400px,calc(100vw-2rem))] items-center justify-between gap-3 py-3 md:gap-4 md:py-4 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:gap-x-4 xl:gap-x-6">
+        <div className="shell flex items-center justify-between gap-3 py-3 md:gap-4 md:py-4 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:gap-x-4 xl:gap-x-6">
           <Link
             href="#hero"
             className="group relative z-[1] flex min-w-0 shrink-0 items-center gap-2.5 whitespace-nowrap bg-paper md:gap-3"

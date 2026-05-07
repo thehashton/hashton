@@ -67,7 +67,7 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="scroll-mt-28 bg-paper py-20 md:py-28">
-      <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
+      <div className="shell">
         <Reveal>
           <SectionLabel label="Contact" />
           <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr]">

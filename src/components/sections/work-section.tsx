@@ -9,7 +9,7 @@ export async function WorkSection() {
 
   return (
     <section id="work" className="scroll-mt-28 border-b-2 border-ink bg-paper py-20 md:py-28">
-      <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
+      <div className="shell">
         <Reveal>
           <SectionLabel label="Selected work" />
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">

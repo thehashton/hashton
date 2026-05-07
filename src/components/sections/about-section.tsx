@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export function AboutSection() {
   return (
     <section id="about" className="scroll-mt-28 border-b-2 border-ink bg-paper py-20 md:py-28">
-      <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
+      <div className="shell">
         <Reveal>
           <SectionLabel label="About" />
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">

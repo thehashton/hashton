@@ -50,7 +50,7 @@ export default function RootLayout({
         <Providers>
           <GridOverlay />
           <Header />
-          <main>{children}</main>
+          <main className="min-w-0">{children}</main>
           <Footer />
         </Providers>
         <Analytics />

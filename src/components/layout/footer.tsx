@@ -7,7 +7,7 @@ import { socialPlatforms } from "@/lib/social-platforms";
 export function Footer() {
   return (
     <footer className="border-t-2 border-ink bg-paper">
-      <div className="mx-auto grid max-w-[min(1400px,calc(100vw-2rem))] gap-12 py-16 md:grid-cols-[1.2fr_1fr]">
+      <div className="shell grid gap-12 py-16 md:grid-cols-[1.2fr_1fr]">
         <div>
           <p className="caption-mono text-ink-600">© {new Date().getFullYear()} Harry Ashton</p>
           <p className="mt-4 max-w-md font-sans text-[2rem] font-bold leading-none tracking-tight text-ink">

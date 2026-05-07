@@ -46,7 +46,7 @@ export default async function WorkCaseStudyPage({
   }
 
   return (
-    <article className="mx-auto max-w-[min(900px,calc(100vw-2rem))] py-16 md:py-24">
+    <article className="shell-prose py-16 md:py-24">
       <Link href="/#work" className="caption-mono text-ink-600 hover:bg-ink hover:text-paper">
         ← Back to selected work
       </Link>

@@ -9,9 +9,9 @@ import { site } from "@/lib/site";
 
 export function HeroSection() {
   return (
-    <section id="hero" className="scroll-mt-28 border-b-2 border-ink bg-paper">
-      <div className="mx-auto grid max-w-[min(1400px,calc(100vw-2rem))] gap-12 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:py-24">
-        <Reveal>
+    <section id="hero" className="scroll-mt-28 overflow-x-clip border-b-2 border-ink bg-paper">
+      <div className="shell grid gap-12 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:py-24">
+        <Reveal className="min-w-0">
           <SectionLabel label="Intro" />
           <div className="space-y-3">
             <h1 className="display-text max-w-[18ch] text-ink">Harry Ashton</h1>
@@ -41,7 +41,7 @@ export function HeroSection() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.08}>
+        <Reveal delay={0.08} className="min-w-0">
           <div>
             <HeroVideo
               src={{ mp4: "/video/hero.mp4", webm: "/video/hero.webm" }}
