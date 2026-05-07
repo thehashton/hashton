@@ -7,12 +7,12 @@ const pillars = [
     body: "Design systems, accessibility programs, micro-frontends, performance pragmatism — the boring infrastructure that keeps velocity honest.",
   },
   {
-    title: "Coaching",
-    body: "Beginners don’t need hype; they need direction. Tight feedback loops, realistic schedules, and hiring literacy — without pretending it’s easy.",
+    title: "Contract delivery",
+    body: "Embedded IC work for defined scopes — shipping production UI, stabilizing patterns, and handing off code teams can own without a rewrite fantasy.",
   },
   {
     title: "Consulting",
-    body: "Frontend audits, UI architecture decisions, and pragmatic standards that teams can adopt without a rewrite fantasy.",
+    body: "Frontend audits, UI architecture decisions, and pragmatic standards — plus stakeholder-ready clarity when you need a decision, not a slide deck.",
   },
 ];
 
@@ -21,7 +21,7 @@ export function ServicesSection() {
     <section id="services" className="scroll-mt-28 border-b-2 border-ink bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
         <Reveal>
-          <SectionLabel label="§05 · What I do" />
+          <SectionLabel label="What I do" />
           <h2 className="font-sans text-[2.5rem] font-bold tracking-tight text-ink md:text-[3rem]">
             Three lanes. One bar for craft.
           </h2>

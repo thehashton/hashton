@@ -23,7 +23,8 @@ export function JsonLd() {
       "Web accessibility",
       "React",
       "TypeScript",
-      "Teaching",
+      "Contract software development",
+      "Technical consulting",
     ],
   };
 

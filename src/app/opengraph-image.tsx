@@ -47,7 +47,7 @@ export default async function Image() {
             Harry Ashton
           </div>
           <div style={{ fontSize: 34, maxWidth: 900, lineHeight: 1.25, fontWeight: 600 }}>
-            Ex-lead frontend · Design systems · Accessibility · Coaching
+            Contract & consulting frontend — design systems, accessibility
           </div>
         </div>
 

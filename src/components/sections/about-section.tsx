@@ -7,11 +7,11 @@ export function AboutSection() {
     <section id="about" className="scroll-mt-28 border-b-2 border-ink bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
         <Reveal>
-          <SectionLabel label="§02 · About" />
+          <SectionLabel label="About" />
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
             <div>
               <h2 className="font-sans text-[2.5rem] font-bold leading-[1.05] tracking-tight text-ink md:text-[3rem]">
-                Engineer first. Teacher on purpose.
+                Engineer first. Clarity under pressure.
               </h2>
               <p className="mt-8 max-w-2xl text-[1.125rem] leading-relaxed text-ink-800">
                 I&apos;m a senior frontend engineer with a long arc from agency throughput to product leadership:
@@ -22,17 +22,18 @@ export function AboutSection() {
                 {" "}where teams need guardrails without slowing delivery.
               </p>
               <p className="mt-6 max-w-2xl text-[1.125rem] leading-relaxed text-ink-800">
-                In parallel, I coach beginners through{" "}
-                <strong className="text-ink">Front End Now</strong> — because hiring is opaque and most people quit in the worst window.
-                I&apos;m blunt about difficulty because respect beats encouragement theatre.
+                Today I&apos;m focused on{" "}
+                <strong className="text-ink">contract and consulting frontend work</strong>
+                {" "}— senior IC delivery, sensible architecture, and accessibility engineering teams can sustain.
+                If you need someone who ships and explains trade-offs without theatre, we&apos;ll get along.
               </p>
             </div>
 
             <aside className="flex flex-col gap-6 border-2 border-ink bg-paper p-8 shadow-[8px_8px_0_0_#0a0a0a]">
               <Stat label="Years in frontend" value={`${site.stats.yearsExperience}`} />
-              <Stat label="Offers students landed (aggregate)" value={`${site.stats.jobsHelped}`} />
-              <Stat label="Latest leadership role" value="Lead Frontend · EO Charging" />
-              <Stat label="Operating mode" value="UTC± remote · async-first" />
+              <Stat label="Engagement types" value="Contract · consulting · senior IC" />
+              <Stat label="Latest leadership role" value="Lead Frontend, EO Charging" />
+              <Stat label="Operating mode" value="UTC± remote, async-first" />
             </aside>
           </div>
         </Reveal>

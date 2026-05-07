@@ -9,11 +9,13 @@ import { toast } from "sonner";
 
 import { SectionLabel } from "@/components/sections/section-label";
 import { Reveal } from "@/components/motion/reveal";
+import { SocialBrandIcon } from "@/components/social/social-brand-icon";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { site } from "@/lib/site";
+import { socialPlatforms } from "@/lib/social-platforms";
 
 const schema = z.object({
   name: z.string().min(2, "Name is too short"),
@@ -22,15 +24,6 @@ const schema = z.object({
 });
 
 type FormValues = z.infer<typeof schema>;
-
-const socials = [
-  { label: "YouTube", href: site.links.youtube },
-  { label: "TikTok", href: site.links.tiktok },
-  { label: "Instagram", href: site.links.instagram },
-  { label: "X", href: site.links.x },
-  { label: "LinkedIn", href: site.links.linkedin },
-  { label: "GitHub", href: site.links.github },
-];
 
 export function ContactSection() {
   const [pending, setPending] = useState(false);
@@ -76,28 +69,29 @@ export function ContactSection() {
     <section id="contact" className="scroll-mt-28 bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
         <Reveal>
-          <SectionLabel label="§08 · Contact" />
+          <SectionLabel label="Contact" />
           <div className="grid gap-16 lg:grid-cols-[1fr_1.1fr]">
             <div>
               <h2 className="font-sans text-[2.5rem] font-bold tracking-tight text-ink md:text-[3rem]">
-                Say hello — hiring or coaching.
+                Say hello — roles, contracts, or consulting.
               </h2>
               <p className="mt-6 max-w-lg text-[1.125rem] leading-relaxed text-ink-800">
-                Tell me what you&apos;re building, what role you&apos;re hiring for, or where you&apos;re stuck learning.
+                Tell me what you&apos;re building, the role or engagement type, and your timeline.
                 Short briefs beat polished vagueness.
               </p>
 
               <div className="mt-10">
                 <p className="caption-mono text-ink-600">Social grid</p>
                 <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  {socials.map((s) => (
-                    <li key={s.label}>
+                  {socialPlatforms.map((s) => (
+                    <li key={s.id}>
                       <Link
                         href={s.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="invert-hover flex items-center justify-center border-2 border-ink px-4 py-4 font-mono text-caption font-semibold tracking-[0.14em] uppercase"
+                        className="invert-hover flex items-center justify-center gap-2.5 border-2 border-ink px-4 py-4 font-mono text-caption font-semibold tracking-[0.14em] uppercase"
                       >
+                        <SocialBrandIcon brand={s.brand} className="size-5 shrink-0" />
                         {s.label}
                       </Link>
                     </li>

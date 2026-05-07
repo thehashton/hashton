@@ -21,7 +21,7 @@ export function MarqueeStrip() {
           {sequence.map((label, i) => (
             <span key={`${label}-${i}`} className="flex items-center gap-12">
               <span>{label}</span>
-              <span className="text-accent">◆</span>
+              <span className="text-ink-400">—</span>
             </span>
           ))}
         </div>

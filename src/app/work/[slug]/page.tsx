@@ -18,10 +18,10 @@ export async function generateMetadata({
   try {
     const { frontmatter } = await getWorkBySlug(slug);
     return {
-      title: `${frontmatter.title} · Harry Ashton`,
+      title: `${frontmatter.title} — Harry Ashton`,
       description: frontmatter.excerpt,
       openGraph: {
-        title: `${frontmatter.title} · Harry Ashton`,
+        title: `${frontmatter.title} — Harry Ashton`,
         description: frontmatter.excerpt,
         url: `${site.url}/work/${slug}`,
       },
@@ -56,10 +56,8 @@ export default async function WorkCaseStudyPage({
         <h1 className="mt-4 font-sans text-[2.75rem] font-bold leading-[1.05] tracking-tight text-ink md:text-[3.5rem]">
           {page.frontmatter.title}
         </h1>
-        <div className="caption-mono mt-8 flex flex-wrap gap-x-6 gap-y-2 text-ink-700">
-          <span>{page.frontmatter.role}</span>
-          <span className="text-ink-300">/</span>
-          <span>{page.frontmatter.stack}</span>
+        <div className="caption-mono mt-8 leading-relaxed text-ink-700">
+          {page.frontmatter.role} — {page.frontmatter.stack}
         </div>
         <p className="mt-8 max-w-2xl text-[1.2rem] leading-relaxed text-ink-800">{page.frontmatter.excerpt}</p>
       </header>

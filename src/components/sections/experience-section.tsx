@@ -9,12 +9,12 @@ export function ExperienceSection() {
     <section id="experience" className="scroll-mt-28 border-b-2 border-ink bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
         <Reveal>
-          <SectionLabel label="§04 · Experience" />
+          <SectionLabel label="Experience" />
           <h2 className="font-sans text-[2.5rem] font-bold tracking-tight text-ink md:text-[3rem]">
             Roles that compound.
           </h2>
           <p className="caption-mono mt-6 max-w-2xl text-ink-600">
-            From agency breadth → product depth → leadership tooling → founder/coach — without pretending each era was the same job.
+            From agency breadth → product depth → leadership tooling → founder-led product — without pretending each era was the same job.
           </p>
         </Reveal>
 
@@ -48,9 +48,7 @@ export function ExperienceSection() {
                     )}
                   </div>
                   <p className="caption-mono mt-2 text-ink-600">
-                    {job.period}
-                    <span className="text-ink-300"> · </span>
-                    {job.location}
+                    {job.period}, {job.location}
                   </p>
                   <p className="mt-4 max-w-3xl text-[1.125rem] leading-relaxed text-ink-800">{job.summary}</p>
                 </article>

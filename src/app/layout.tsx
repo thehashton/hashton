@@ -18,8 +18,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} · Senior Frontend Engineer`,
-    template: `%s · ${site.name}`,
+    default: `${site.name} — Senior Frontend Engineer`,
+    template: `%s — ${site.name}`,
   },
   description: site.tagline,
   openGraph: {

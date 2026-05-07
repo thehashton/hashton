@@ -199,8 +199,8 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                   </Magnetic>
                   <p className="caption-mono text-paper">
                     {durationLabel}
-                    <span className="text-paper/70"> · </span>
-                    PLAY INTRO
+                    <span className="text-paper/70"> — </span>
+                    Play intro
                   </p>
                 </div>
               </div>
@@ -312,7 +312,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                 </div>
 
                 <p className="caption-mono border-t-2 border-paper px-4 py-3 text-paper/60 md:px-5">
-                  Space / K play · M mute · F fullscreen · Esc close
+                  Keys: Space or K (play), M (mute), F (fullscreen), Esc (close)
                 </p>
               </motion.div>
             </motion.div>

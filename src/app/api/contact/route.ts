@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     from,
     to,
     replyTo: email,
-    subject: `Portfolio inquiry · ${name}`,
+    subject: `Portfolio inquiry: ${name}`,
     text: `${message}\n\n— ${name} <${email}>`,
   });
 

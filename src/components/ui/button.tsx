@@ -5,13 +5,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 border-2 border-ink bg-paper px-5 py-3 font-mono text-caption font-semibold tracking-[0.16em] uppercase shadow-brutal-sm transition-[transform,box-shadow,background-color,color] duration-150 hover:-translate-x-px hover:-translate-y-px hover:bg-ink hover:text-paper active:translate-x-[3px] active:translate-y-[3px] active:shadow-none disabled:pointer-events-none disabled:opacity-40",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap border-2 border-ink bg-paper px-5 py-3 font-mono text-caption font-semibold tracking-[0.16em] uppercase shadow-brutal-sm transition-[transform,box-shadow,background-color,color] duration-150 hover:-translate-x-px hover:-translate-y-px hover:bg-ink hover:text-paper active:translate-x-[3px] active:translate-y-[3px] active:shadow-none disabled:pointer-events-none disabled:opacity-40",
   {
     variants: {
       variant: {
         default: "",
         accent:
-          "bg-accent text-paper hover:bg-ink hover:text-paper border-ink shadow-brutal-sm",
+          "min-h-12 min-w-[9rem] bg-accent px-6 py-3.5 text-paper hover:bg-ink hover:text-paper border-ink shadow-[8px_8px_0_0_#0a0a0a]",
         ghost:
           "border-transparent bg-transparent shadow-none hover:translate-x-0 hover:translate-y-0 hover:bg-ink/5 hover:text-ink hover:shadow-none active:translate-x-0 active:translate-y-0",
       },

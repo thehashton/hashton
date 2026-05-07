@@ -1,16 +1,8 @@
 import Link from "next/link";
 
+import { SocialBrandIcon } from "@/components/social/social-brand-icon";
 import { sectionNav } from "@/lib/nav";
-import { site } from "@/lib/site";
-
-const socials = [
-  { label: "YouTube", href: site.links.youtube },
-  { label: "TikTok", href: site.links.tiktok },
-  { label: "Instagram", href: site.links.instagram },
-  { label: "X", href: site.links.x },
-  { label: "LinkedIn", href: site.links.linkedin },
-  { label: "GitHub", href: site.links.github },
-];
+import { socialPlatforms } from "@/lib/social-platforms";
 
 export function Footer() {
   return (
@@ -19,7 +11,7 @@ export function Footer() {
         <div>
           <p className="caption-mono text-ink-600">© {new Date().getFullYear()} Harry Ashton</p>
           <p className="mt-4 max-w-md font-sans text-[2rem] font-bold leading-none tracking-tight text-ink">
-            Frontend leadership. Systems thinking. Teaching that respects reality.
+            Frontend leadership. Systems thinking. Delivery you can ship and measure.
           </p>
           <p className="caption-mono mt-6 text-ink-500">
             Built with Next.js 15 + Tailwind CSS v4 — brutalist by intent.
@@ -42,14 +34,15 @@ export function Footer() {
           <div>
             <p className="caption-mono mb-4 text-ink-600">Elsewhere</p>
             <ul className="grid gap-2 font-mono text-caption tracking-[0.14em] uppercase">
-              {socials.map((s) => (
-                <li key={s.label}>
+              {socialPlatforms.map((s) => (
+                <li key={s.id}>
                   <Link
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="invert-hover inline-flex border-2 border-ink px-3 py-2"
+                    className="invert-hover inline-flex min-w-[11rem] items-center gap-3 border-2 border-ink px-3 py-2 sm:min-w-[12rem]"
                   >
+                    <SocialBrandIcon brand={s.brand} className="size-4 shrink-0" />
                     {s.label}
                   </Link>
                 </li>

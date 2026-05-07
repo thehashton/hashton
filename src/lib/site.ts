@@ -1,13 +1,13 @@
 export const site = {
   name: "Harry Ashton",
   nickname: "Hashton",
-  title: "Senior Frontend Engineer · Design Systems · Accessibility",
+  title: "Senior frontend engineer — contract & consulting",
   tagline:
-    "Ex-Lead Frontend Developer. I ship interfaces, systems, and teams — and I teach others to do the same.",
+    "Ex-lead frontend developer. I ship interfaces and design systems — on contract, as a consultant, or embedded as senior IC.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://hashton.vercel.app",
-  location: "United States · Remote",
+  location: "United States, remote",
   email: "hello@learnfrontendnow.com",
   links: {
     linkedin: "https://www.linkedin.com/in/harryfen/",
@@ -16,10 +16,8 @@ export const site = {
     youtube: "https://www.youtube.com/@FrontendNow",
     tiktok: "https://www.tiktok.com/@thehashton",
     instagram: "https://www.instagram.com/thehashton/",
-    coaching: "https://learnfrontendnow.com",
   },
   stats: {
     yearsExperience: "14+",
-    jobsHelped: "70+",
   },
 } as const;

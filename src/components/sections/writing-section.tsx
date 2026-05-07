@@ -10,7 +10,7 @@ export function WritingSection() {
     <section id="writing" className="scroll-mt-28 border-b-2 border-ink bg-paper py-20 md:py-28">
       <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
         <Reveal>
-          <SectionLabel label="§07 · Writing" />
+          <SectionLabel label="Writing" />
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <h2 className="font-sans text-[2.5rem] font-bold tracking-tight text-ink md:text-[3rem]">
               LinkedIn essays.

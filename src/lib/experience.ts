@@ -17,7 +17,7 @@ export const experience: ExperienceItem[] = [
     period: "Mar 2023 — Present",
     location: "Remote",
     summary:
-      "Helping beginners land frontend roles through structured programs, coaching, and accountability — without needing a degree first.",
+      "Structured programs and community around landing a first frontend role — curriculum, product, and ops for an education business.",
   },
   {
     id: "eo",
@@ -25,7 +25,7 @@ export const experience: ExperienceItem[] = [
     company: "EO Charging",
     href: "https://www.linkedin.com/company/eo-charging",
     period: "Sep 2022 — May 2025",
-    location: "Stowmarket, UK · Remote",
+    location: "Stowmarket, UK, remote",
     summary:
       "Lead frontend on the Depot Squad for EO Portal: analytical dashboards, customised maps, UI libraries, micro-frontend architecture. Partnered with product on UI/UX in Figma. Built in-house accessibility audit tooling for WCAG 2.1 AA monitoring.",
   },
@@ -35,7 +35,7 @@ export const experience: ExperienceItem[] = [
     company: "THRIVE LXP",
     href: "https://www.linkedin.com/company/thrivelearning",
     period: "Jun 2020 — Sep 2022",
-    location: "Nottingham, UK · Remote",
+    location: "Nottingham, UK, remote",
     summary:
       "React, MUI, TypeScript product UI with a heavy focus on accessibility, design systems, testing, and UX. Owned the shared component library across apps; bespoke/MUI hybrid components. Accessibility audits and cross-team education.",
   },

@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hashton
 
-## Getting Started
+**A brutalist personal portfolio for Harry Ashton** — senior frontend engineer (contract & consulting). Single-page marketing site with a hero video, MDX-powered case studies, and a contact pipeline wired for production deploys on Vercel.
 
-First, run the development server:
+---
+
+## What’s inside
+
+- **Visual system** — Paper-and-ink palette, hairline borders, hard shadows, monospace captions (Tailwind CSS v4 + design tokens in `src/styles/globals.css`).
+- **Hero** — Custom `HeroVideo` player (poster, fullscreen dialog, keyboard-friendly controls, reduced-motion aware).
+- **Work** — Case studies from `src/content/work/*.mdx` with dynamic `/work/[slug]` routes.
+- **Contact** — React Hook Form + Zod; `POST /api/contact` sends mail via [Resend](https://resend.com/) when configured, otherwise returns a graceful fallback for `mailto:`.
+- **SEO** — Metadata, Open Graph image, `robots.txt`, `sitemap.xml`, JSON-LD `Person` schema.
+- **Analytics** — Vercel Analytics & Speed Insights (optional in production).
+
+## Tech stack
+
+| Layer     | Choices                                                                    |
+| --------- | -------------------------------------------------------------------------- |
+| Framework | [Next.js](https://nextjs.org/) 15 (App Router), React 19, TypeScript       |
+| Styling   | Tailwind CSS v4, Framer Motion                                             |
+| Content   | MDX (`gray-matter`, `@next/mdx` / remote MDX pipeline as wired in the app) |
+| Forms     | react-hook-form, Zod                                                       |
+| Icons     | `simple-icons`, bespoke brand SVGs where needed                            |
+
+## Requirements
+
+- **Node.js** ≥ 18.18 (recommended: **20.x**)
+- **pnpm** (package manager for this repo)
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm lint      # ESLint
+pnpm build     # production build (Turbopack)
+pnpm start     # run production server locally
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Environment variables
 
-## Learn More
+Create a `.env.local` (not committed) for production-like behavior:
 
-To learn more about Next.js, take a look at the following resources:
+| Variable               | Purpose                                                                           |
+| ---------------------- | --------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (metadata, OG, sitemap). Example: `https://hashton.vercel.app` |
+| `RESEND_API_KEY`       | Resend API key — contact form sends email when set                                |
+| `CONTACT_EMAIL`        | Inbox address for contact submissions                                             |
+| `CONTACT_FROM`         | Optional Resend `from` string (defaults in API route if unset)                    |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+If `RESEND_API_KEY` or `CONTACT_EMAIL` is missing, the API still responds successfully with `fallback: true` so the UI can open the user’s mail client instead.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project layout (high level)
 
-## Deploy on Vercel
+```
+src/
+  app/           # App Router pages, API routes, OG image
+  components/    # Layout, sections, video, UI primitives
+  content/work/  # MDX case studies
+  lib/           # Site config, nav, data helpers
+  styles/        # Global CSS + Tailwind theme
+public/          # Static assets (e.g. video, posters)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Configured for **[Vercel](https://vercel.com/)**: connect the repo, set the env vars above, and deploy. Asset-heavy routes are static where possible; `/api/contact` runs on the Edge/Node runtime per Next defaults.
+
+---
+
+Built and maintained by [Harry Ashton](https://github.com/thehashton).
