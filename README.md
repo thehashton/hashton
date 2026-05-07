@@ -1,6 +1,6 @@
 # Hashton
 
-**A brutalist personal portfolio for Harry Ashton** — senior frontend engineer (contract & consulting). Single-page marketing site with a hero video, MDX-powered case studies, and a contact pipeline wired for production deploys on Vercel.
+**Harry Ashton** — I’m a senior frontend engineer (contract & consulting). This repo is my brutalist portfolio: a single-page site with a hero video, MDX-powered case studies, and a contact pipeline wired for production deploys on Vercel.
 
 ---
 
@@ -74,4 +74,4 @@ Configured for **[Vercel](https://vercel.com/)**: connect the repo, set the env 
 
 ---
 
-Built and maintained by [Harry Ashton](https://github.com/thehashton).
+I maintain this repo at [@thehashton](https://github.com/thehashton).
