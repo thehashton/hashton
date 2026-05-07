@@ -1,0 +1,44 @@
+import { SectionLabel } from "@/components/sections/section-label";
+import { Reveal } from "@/components/motion/reveal";
+
+const pillars = [
+  {
+    title: "Engineering",
+    body: "Design systems, accessibility programs, micro-frontends, performance pragmatism — the boring infrastructure that keeps velocity honest.",
+  },
+  {
+    title: "Coaching",
+    body: "Beginners don’t need hype; they need direction. Tight feedback loops, realistic schedules, and hiring literacy — without pretending it’s easy.",
+  },
+  {
+    title: "Consulting",
+    body: "Frontend audits, UI architecture decisions, and pragmatic standards that teams can adopt without a rewrite fantasy.",
+  },
+];
+
+export function ServicesSection() {
+  return (
+    <section id="services" className="scroll-mt-28 border-b-2 border-ink bg-paper py-20 md:py-28">
+      <div className="mx-auto max-w-[min(1400px,calc(100vw-2rem))]">
+        <Reveal>
+          <SectionLabel label="§05 · What I do" />
+          <h2 className="font-sans text-[2.5rem] font-bold tracking-tight text-ink md:text-[3rem]">
+            Three lanes. One bar for craft.
+          </h2>
+        </Reveal>
+
+        <div className="mt-14 grid gap-8 md:grid-cols-3">
+          {pillars.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.06}>
+              <article className="flex h-full flex-col border-2 border-ink bg-paper p-8 shadow-[8px_8px_0_0_#0a0a0a]">
+                <p className="caption-mono text-accent">{String(i + 1).padStart(2, "0")}</p>
+                <h3 className="mt-4 font-sans text-3xl font-bold tracking-tight text-ink">{p.title}</h3>
+                <p className="mt-6 text-[1.125rem] leading-relaxed text-ink-800">{p.body}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
