@@ -67,7 +67,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-28 bg-paper py-14 md:py-24 lg:py-28">
+    <section id="contact" className="scroll-mt-28 w-full min-w-0 bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Contact" />

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className="border-t-2 border-ink bg-paper">
+    <footer className="w-full border-t-2 border-ink bg-paper">
       <div className={cn(shellClass, "grid gap-10 py-12 md:gap-12 md:py-16 md:grid-cols-[1.2fr_1fr]")}>
         <div>
           <p className="caption-mono text-ink-600">© {new Date().getFullYear()} Harry Ashton</p>

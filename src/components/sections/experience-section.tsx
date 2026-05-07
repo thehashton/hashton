@@ -7,7 +7,7 @@ import { shellClass } from "@/lib/layout-shell";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="scroll-mt-28 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="experience" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Experience" />

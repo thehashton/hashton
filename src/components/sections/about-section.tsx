@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-28 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="about" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="About" />

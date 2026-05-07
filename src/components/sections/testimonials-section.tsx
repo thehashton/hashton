@@ -7,7 +7,7 @@ import { testimonials } from "@/lib/testimonials";
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="scroll-mt-28 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="testimonials" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Proof" />

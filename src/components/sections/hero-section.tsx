@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   return (
-    <section id="hero" className="scroll-mt-28 overflow-x-clip border-b-2 border-ink bg-paper">
+    <section id="hero" className="scroll-mt-28 w-full min-w-0 overflow-x-clip border-b-2 border-ink bg-paper">
       <div
         className={cn(
           shellClass,

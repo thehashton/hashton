@@ -8,7 +8,7 @@ import { writingLinks } from "@/lib/writing";
 
 export function WritingSection() {
   return (
-    <section id="writing" className="scroll-mt-28 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="writing" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Writing" />

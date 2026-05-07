@@ -12,6 +12,8 @@ import { site } from "@/lib/site";
 import "@/styles/globals.css";
 
 export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
   themeColor: "#f4f1ea",
 };
 
@@ -45,13 +47,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-paper font-sans text-ink antialiased">
+      <body className="min-h-screen w-full bg-paper font-sans text-ink antialiased">
         <JsonLd />
         <Providers>
-          <GridOverlay />
-          <Header />
-          <main className="w-full min-w-0">{children}</main>
-          <Footer />
+          <div className="flex min-h-screen w-full max-w-none flex-col items-stretch">
+            <GridOverlay />
+            <Header />
+            <main className="w-full min-w-0 flex-1">{children}</main>
+            <Footer />
+          </div>
         </Providers>
         <Analytics />
         <SpeedInsights />

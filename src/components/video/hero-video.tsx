@@ -171,7 +171,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
               layoutId="hero-video-shell"
               transition={{ layout: layoutTransition }}
               className={cn(
-                "relative overflow-hidden border-2 border-ink bg-ink shadow-[8px_8px_0_0_#0a0a0a]",
+                "relative w-full min-w-0 overflow-hidden border-2 border-ink bg-ink shadow-[8px_8px_0_0_#0a0a0a]",
               )}
             >
               <div className="relative aspect-video w-full">

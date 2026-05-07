@@ -15,22 +15,32 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/s
 function NavLinks({
   className,
   onNavigate,
+  variant = "rail",
 }: {
   className?: string;
   onNavigate?: () => void;
+  /** `rail` = compact strip in header; `drawer` = mobile sheet — larger type & tap targets */
+  variant?: "rail" | "drawer";
 }) {
+  const railNav =
+    "flex flex-col gap-1 font-mono text-[10px] font-semibold tracking-[0.12em] uppercase sm:text-caption sm:tracking-[0.14em] lg:flex-row lg:flex-nowrap lg:items-center lg:justify-center lg:gap-x-2 lg:gap-y-0 xl:gap-x-3 2xl:gap-x-4";
+
+  const drawerNav =
+    "flex flex-col gap-0.5 font-mono text-[1rem] font-semibold uppercase leading-snug tracking-[0.1em] sm:text-[1.125rem]";
+
+  const railLink =
+    "shrink-0 whitespace-nowrap border border-transparent px-1 py-2 text-ink hover:border-ink hover:bg-ink hover:text-paper lg:py-1 lg:pl-1 lg:pr-1 xl:px-1.5";
+
+  const drawerLink =
+    "flex min-h-[3rem] items-center border-2 border-transparent px-2 py-3 text-ink hover:border-ink hover:bg-ink hover:text-paper active:bg-ink/10 sm:min-h-[3.25rem] sm:py-3.5";
+
   return (
-    <nav
-      className={cn(
-        "flex flex-col gap-1 font-mono text-[10px] font-semibold tracking-[0.12em] uppercase sm:text-caption sm:tracking-[0.14em] lg:flex-row lg:flex-nowrap lg:items-center lg:justify-center lg:gap-x-2 lg:gap-y-0 xl:gap-x-3 2xl:gap-x-4",
-        className,
-      )}
-    >
+    <nav className={cn(variant === "drawer" ? drawerNav : railNav, className)}>
       {sectionNav.map((item) => (
         <Link
           key={item.id}
           href={`#${item.id}`}
-          className="shrink-0 whitespace-nowrap border border-transparent px-1 py-2 text-ink hover:border-ink hover:bg-ink hover:text-paper lg:py-1 lg:pl-1 lg:pr-1 xl:px-1.5"
+          className={variant === "drawer" ? drawerLink : railLink}
           onClick={onNavigate}
         >
           {item.label}
@@ -44,7 +54,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-ink bg-paper/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-ink bg-paper/95 backdrop-blur-sm">
       <Sheet open={open} onOpenChange={setOpen}>
         <div
           className={cn(
@@ -105,12 +115,14 @@ export function Header() {
           </div>
         </div>
 
-        <SheetContent className="gap-8">
+        <SheetContent className="gap-6 p-6 sm:gap-8 sm:p-8">
           <div className="flex flex-col gap-2 border-b-2 border-ink pb-6">
-            <p className="font-sans text-2xl font-bold tracking-tight">Harry Ashton</p>
-            <p className="caption-mono text-ink-600">Navigation</p>
+            <p className="font-sans text-3xl font-bold tracking-tight sm:text-[2rem]">Harry Ashton</p>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-600 sm:text-[0.8125rem]">
+              Navigation
+            </p>
           </div>
-          <NavLinks onNavigate={() => setOpen(false)} />
+          <NavLinks variant="drawer" onNavigate={() => setOpen(false)} />
           <div className="mt-auto flex flex-wrap gap-3 border-t-2 border-ink pt-6">
             <SheetClose asChild>
               <Button asChild variant="accent">
