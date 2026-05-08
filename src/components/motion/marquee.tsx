@@ -12,10 +12,10 @@ const ITEMS = [
 export function MarqueeStrip() {
   const sequence = [...ITEMS, ...ITEMS, ...ITEMS, ...ITEMS];
   return (
-    <div className="border-y-2 border-ink bg-paper py-4">
+    <div className="border-y border-ink/10 bg-muted py-4">
       <div className="overflow-hidden">
         <div
-          className="flex w-max gap-12 animate-marquee whitespace-nowrap px-4 font-mono text-caption font-semibold tracking-[0.22em] text-ink uppercase"
+          className="flex w-max gap-12 animate-marquee whitespace-nowrap px-4 font-mono text-xs font-semibold tracking-[0.18em] text-ink/70 uppercase"
           aria-hidden
         >
           {sequence.map((label, i) => (

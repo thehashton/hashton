@@ -28,19 +28,20 @@ const skills = [
 
 export function HeroSkills() {
   return (
-    <div className="border-t border-ink/25 pt-6 md:pt-8">
+    <div className="border-t border-ink/10 pt-6 md:pt-8">
       <p className="caption-mono text-ink-600">Stack</p>
-      <ul className="mt-4 flex flex-wrap gap-3">
+      <ul className="mt-4 grid w-full grid-cols-3 gap-3 sm:grid-cols-5 md:grid-cols-9">
         {skills.map((s) => (
           <li key={s.label}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <button
                   type="button"
-                  className="inline-flex size-12 items-center justify-center border-2 border-ink bg-paper text-ink shadow-[4px_4px_0_0_#0a0a0a] transition-colors hover:bg-ink hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  style={{ ["--brand" as never]: `#${s.icon.hex}` }}
+                  className="group inline-flex aspect-square w-full items-center justify-center rounded-xl border border-ink/10 bg-surface text-[var(--brand)] shadow-sm transition-[transform,box-shadow,border-color,background-color] duration-200 hover:scale-[1.04] hover:[border-color:var(--brand)] hover:[box-shadow:0_14px_34px_-18px_var(--brand)] active:scale-[1.01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                   aria-label={s.label}
                 >
-                  <svg className="size-6" viewBox="0 0 24 24" aria-hidden>
+                  <svg className="size-6 transition-transform duration-200 group-hover:rotate-[-4deg] md:size-7" viewBox="0 0 24 24" aria-hidden>
                     <path fill="currentColor" d={s.icon.path} />
                   </svg>
                 </button>

@@ -14,7 +14,7 @@ import "@/styles/globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f4f1ea",
+  themeColor: "#faf7f1",
 };
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description: site.tagline,
     url: site.url,
     siteName: site.name,
-    locale: "en_US",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {

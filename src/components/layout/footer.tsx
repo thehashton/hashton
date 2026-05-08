@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t-2 border-ink bg-paper">
+    <footer className="w-full border-t border-ink/10 bg-paper">
       <div className={cn(shellClass, "grid gap-10 py-12 md:gap-12 md:py-16 md:grid-cols-[1.2fr_1fr]")}>
         <div>
           <p className="caption-mono text-ink-600">© {new Date().getFullYear()} Harry Ashton</p>
@@ -16,7 +16,7 @@ export function Footer() {
             Frontend leadership. Systems thinking. Delivery you can ship and measure.
           </p>
           <p className="caption-mono mt-6 text-ink-500">
-            Built with Next.js 15 + Tailwind CSS v4 — brutalist by intent.
+            Built with Next.js 15 + Tailwind CSS v4 — warm minimal by intent.
           </p>
         </div>
 
@@ -26,7 +26,7 @@ export function Footer() {
             <ul className="space-y-2 font-mono text-caption tracking-[0.14em] text-ink uppercase">
               {sectionNav.map((item) => (
                 <li key={item.id}>
-                  <Link href={`#${item.id}`} className="hover:bg-ink hover:text-paper">
+                  <Link href={`#${item.id}`} className="rounded-md px-1 py-0.5 transition-colors hover:bg-ink/5">
                     {item.label}
                   </Link>
                 </li>
@@ -42,7 +42,7 @@ export function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="invert-hover inline-flex min-w-[11rem] items-center gap-3 border-2 border-ink px-3 py-2 sm:min-w-[12rem]"
+                    className="inline-flex min-w-[11rem] items-center gap-3 rounded-full border border-ink/10 bg-muted px-3 py-2 transition-colors hover:bg-ink hover:text-paper sm:min-w-[12rem]"
                   >
                     <SocialBrandIcon brand={s.brand} className="size-4 shrink-0" />
                     {s.label}

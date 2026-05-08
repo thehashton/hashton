@@ -9,7 +9,7 @@ export async function WorkSection() {
   const items = getWorkMetaList();
 
   return (
-    <section id="work" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="work" className="scroll-mt-28 w-full min-w-0 border-b border-ink/10 bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Selected work" />
@@ -26,22 +26,22 @@ export async function WorkSection() {
         <div className="mt-14 grid gap-8 md:grid-cols-2">
           {items.map((w, i) => (
             <Reveal key={w.slug} delay={i * 0.05}>
-              <article className="group flex h-full flex-col border-2 border-ink bg-paper shadow-[8px_8px_0_0_#0a0a0a] transition-[transform,box-shadow] duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[12px_12px_0_0_#0a0a0a]">
-                <div className="flex items-start justify-between gap-4 border-b-2 border-ink px-6 py-5">
+              <article className="group flex h-full flex-col rounded-xl border border-ink/10 bg-surface shadow-card transition-shadow duration-200 hover:shadow-card-hover">
+                <div className="flex items-start justify-between gap-4 border-b border-ink/10 px-6 py-5">
                   <div>
                     <p className="caption-mono text-ink-500">{w.year}</p>
                     <h3 className="mt-3 font-sans text-2xl font-bold tracking-tight text-ink md:text-[2rem]">
                       {w.title}
                     </h3>
                   </div>
-                  <span className="caption-mono border border-ink px-2 py-1 text-ink">{w.role}</span>
+                  <span className="caption-mono rounded-md border border-ink/10 bg-muted px-2 py-1 text-ink">{w.role}</span>
                 </div>
                 <div className="flex flex-1 flex-col px-6 py-6">
                   <p className="caption-mono text-accent">{w.stack}</p>
                   <p className="mt-4 flex-1 text-[1.125rem] leading-relaxed text-ink-800">{w.excerpt}</p>
                   <Link
                     href={`/work/${w.slug}`}
-                    className="caption-mono mt-8 inline-flex w-fit border-2 border-ink bg-paper px-4 py-3 text-ink shadow-[4px_4px_0_0_#0a0a0a] transition-colors group-hover:bg-ink group-hover:text-paper"
+                    className="caption-mono mt-8 inline-flex w-fit rounded-lg border border-ink/15 bg-transparent px-4 py-3 text-ink transition-colors group-hover:bg-ink group-hover:text-paper"
                   >
                     Read case study →
                   </Link>

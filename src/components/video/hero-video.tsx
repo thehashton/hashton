@@ -171,7 +171,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
               layoutId="hero-video-shell"
               transition={{ layout: layoutTransition }}
               className={cn(
-                "relative w-full min-w-0 overflow-hidden border-2 border-ink bg-ink shadow-[8px_8px_0_0_#0a0a0a]",
+                "relative w-full min-w-0 overflow-hidden rounded-xl border border-ink/10 bg-ink shadow-xl",
               )}
             >
               <div className="relative aspect-video w-full">
@@ -190,7 +190,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                       layout={false}
                       whileHover={reduceMotion ? undefined : { scale: 1.04 }}
                       whileTap={reduceMotion ? undefined : { scale: 0.96 }}
-                      className="flex size-24 items-center justify-center rounded-full border-2 border-ink bg-accent text-paper shadow-[8px_8px_0_0_#0a0a0a] transition-colors hover:bg-paper hover:text-ink"
+                      className="flex size-24 items-center justify-center rounded-full border border-white/25 bg-accent text-accent-foreground shadow-lg transition-colors hover:bg-accent-600"
                       aria-label="Play introduction video"
                       onClick={() => setOpen(true)}
                     >
@@ -219,9 +219,9 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                 initial={reduceMotion ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="relative flex w-full max-w-5xl flex-col border-2 border-paper bg-ink shadow-[8px_8px_0_0_#f4f1ea]"
+                className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-paper/15 bg-ink shadow-2xl"
               >
-                <div className="flex items-start justify-between gap-4 border-b-2 border-paper p-4 md:p-5">
+                <div className="flex items-start justify-between gap-4 border-b border-paper/15 p-4 md:p-5">
                   <div>
                     <h2 id={titleId} className="font-sans text-xl font-bold tracking-tight text-paper md:text-2xl">
                       Intro — Harry Ashton
@@ -231,7 +231,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                   <button
                     ref={closeRef}
                     type="button"
-                    className="invert-hover shrink-0 border-2 border-paper bg-paper p-2 text-ink"
+                    className="shrink-0 rounded-lg border border-paper/20 bg-paper p-2 text-ink transition-colors hover:bg-paper/90"
                     aria-label="Close video"
                     onClick={() => {
                       setOpen(false);
@@ -266,7 +266,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                   ) : null}
                 </div>
 
-                <div className="flex flex-col gap-4 border-t-2 border-paper p-4 md:flex-row md:items-center md:justify-between md:px-5 md:py-4">
+                <div className="flex flex-col gap-4 border-t border-paper/15 p-4 md:flex-row md:items-center md:justify-between md:px-5 md:py-4">
                   <div className="flex flex-1 flex-col gap-2">
                     <label htmlFor={`${shellId}-scrub`} className="caption-mono text-paper/70">
                       Progress
@@ -286,7 +286,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                   <div className="flex flex-wrap items-center gap-2">
                     <button
                       type="button"
-                      className="invert-hover border-2 border-paper bg-paper px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase"
+                      className="rounded-lg border border-paper/20 bg-paper/95 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase transition-colors hover:bg-paper"
                       onClick={togglePlay}
                       aria-label={playing ? "Pause" : "Play"}
                     >
@@ -294,7 +294,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                     </button>
                     <button
                       type="button"
-                      className="invert-hover border-2 border-paper bg-paper px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase"
+                      className="rounded-lg border border-paper/20 bg-paper/95 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase transition-colors hover:bg-paper"
                       onClick={() => setMuted((m) => !m)}
                       aria-label={muted ? "Unmute" : "Mute"}
                     >
@@ -302,7 +302,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                     </button>
                     <button
                       type="button"
-                      className="invert-hover border-2 border-paper bg-paper px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase"
+                      className="rounded-lg border border-paper/20 bg-paper/95 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase transition-colors hover:bg-paper"
                       onClick={() => void videoRef.current?.requestFullscreen?.()}
                       aria-label="Fullscreen"
                     >
@@ -311,7 +311,7 @@ export function HeroVideo({ src, poster, durationLabel, caption }: HeroVideoProp
                   </div>
                 </div>
 
-                <p className="caption-mono border-t-2 border-paper px-4 py-3 text-paper/60 md:px-5">
+                <p className="caption-mono border-t border-paper/15 px-4 py-3 text-paper/60 md:px-5">
                   Keys: Space or K (play), M (mute), F (fullscreen), Esc (close)
                 </p>
               </motion.div>

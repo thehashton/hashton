@@ -13,7 +13,7 @@ export function SectionLabel({
     <p
       id={id}
       className={cn(
-        "caption-mono mb-6 inline-flex border border-ink bg-paper px-3 py-1 text-ink shadow-[4px_4px_0_0_#0a0a0a]",
+        "mb-6 inline-flex items-center rounded-full border border-ink/10 bg-muted px-3 py-1 font-mono text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-ink/70",
         className,
       )}
     >

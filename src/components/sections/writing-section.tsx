@@ -8,7 +8,7 @@ import { writingLinks } from "@/lib/writing";
 
 export function WritingSection() {
   return (
-    <section id="writing" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="writing" className="scroll-mt-28 w-full min-w-0 border-b border-ink/10 bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Writing" />
@@ -30,13 +30,13 @@ export function WritingSection() {
                   href={post.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col justify-between border-2 border-ink bg-paper p-6 shadow-[8px_8px_0_0_#0a0a0a] transition-[transform,box-shadow] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-ink hover:text-paper hover:shadow-[12px_12px_0_0_#f4f1ea]"
+                  className="group flex h-full flex-col justify-between rounded-xl border border-ink/10 bg-surface p-6 shadow-card transition-shadow hover:bg-ink hover:text-paper hover:shadow-card-hover"
                 >
                   <div>
-                    <p className="caption-mono text-accent group-hover:text-paper">{post.topic}</p>
+                    <p className="caption-mono text-accent transition-colors group-hover:text-paper">{post.topic}</p>
                     <p className="mt-4 font-sans text-xl font-bold tracking-tight">{post.title}</p>
                   </div>
-                  <span className="caption-mono mt-8 inline-flex items-center gap-2 border border-current px-3 py-2">
+                  <span className="caption-mono mt-8 inline-flex items-center gap-2 rounded-lg border border-current px-3 py-2">
                     Read on LinkedIn
                     <ArrowUpRight className="size-4" aria-hidden />
                   </span>

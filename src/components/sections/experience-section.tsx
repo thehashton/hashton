@@ -7,7 +7,7 @@ import { shellClass } from "@/lib/layout-shell";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="experience" className="scroll-mt-28 w-full min-w-0 border-b border-ink/10 bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Experience" />
@@ -24,11 +24,11 @@ export function ExperienceSection() {
             <Reveal key={job.id} delay={i * 0.04}>
               <div className="flex gap-6 md:gap-10">
                 <div className="flex w-11 shrink-0 flex-col items-center md:w-14">
-                  <span className="caption-mono flex size-9 shrink-0 items-center justify-center border-2 border-ink bg-accent text-[10px] font-bold text-paper">
+                  <span className="caption-mono flex size-9 shrink-0 items-center justify-center rounded-md border border-ink/10 bg-accent text-[10px] font-bold text-accent-foreground shadow-sm">
                     {(i + 1).toString().padStart(2, "0")}
                   </span>
                   {i < experience.length - 1 ? (
-                    <div className="my-1 min-h-14 w-0 flex-1 border-l-2 border-dashed border-ink/40" />
+                    <div className="my-1 min-h-14 w-0 flex-1 border-l border-dashed border-ink/20" />
                   ) : null}
                 </div>
 
@@ -40,7 +40,7 @@ export function ExperienceSection() {
                         href={job.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="font-mono text-sm font-semibold tracking-wide text-ink underline decoration-accent underline-offset-4 hover:bg-ink hover:text-paper"
+                        className="font-mono text-sm font-semibold tracking-wide text-ink underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent-600"
                       >
                         {job.company}
                       </Link>

@@ -7,7 +7,7 @@ import { testimonials } from "@/lib/testimonials";
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="testimonials" className="scroll-mt-28 w-full min-w-0 border-b border-ink/10 bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Proof" />
@@ -22,12 +22,17 @@ export function TestimonialsSection() {
         <div className="mt-14 grid gap-10 lg:grid-cols-2">
           {testimonials.map((t, i) => (
             <Reveal key={t.id} delay={i * 0.06}>
-              <figure className="flex h-full flex-col border-2 border-ink bg-paper p-8 shadow-[8px_8px_0_0_#0a0a0a]">
+              <figure className="flex h-full flex-col rounded-xl border border-ink/10 bg-surface p-8 shadow-card transition-shadow hover:shadow-card-hover">
                 <blockquote className="flex-1 whitespace-pre-line text-[1.05rem] leading-relaxed text-ink-800">
                   {t.body.trim()}
                 </blockquote>
-                <figcaption className="caption-mono mt-8 border-t-2 border-ink pt-6 text-ink-700">
-                  <Link href={t.href} target="_blank" rel="noopener noreferrer" className="font-bold text-ink hover:bg-ink hover:text-paper">
+                <figcaption className="caption-mono mt-8 border-t border-ink/10 pt-6 text-ink-700">
+                  <Link
+                    href={t.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-ink underline decoration-transparent underline-offset-2 transition-colors hover:text-accent-600 hover:decoration-accent/40"
+                  >
                     {t.author}
                   </Link>
                   <span className="mt-2 block normal-case tracking-normal text-ink-600">{t.role}</span>

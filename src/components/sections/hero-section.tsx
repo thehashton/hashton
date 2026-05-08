@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { ArrowRight, Briefcase, Mail } from "lucide-react";
 
 import { HeroSkills } from "@/components/sections/hero-skills";
 import { HeroVideo } from "@/components/video/hero-video";
-import { SectionLabel } from "@/components/sections/section-label";
 import { Reveal } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { shellClass } from "@/lib/layout-shell";
@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   return (
-    <section id="hero" className="scroll-mt-28 w-full min-w-0 overflow-x-clip border-b-2 border-ink bg-paper">
+    <section id="hero" className="scroll-mt-28 w-full min-w-0 overflow-x-clip border-b border-ink/10 bg-paper">
       <div
         className={cn(
           shellClass,
@@ -19,32 +19,41 @@ export function HeroSection() {
         )}
       >
         <Reveal className="min-w-0">
-          <SectionLabel label="Intro" />
           <div className="space-y-3">
-            <h1 className="display-text max-w-[18ch] text-ink">Harry Ashton</h1>
+            <h1 className="display-text max-w-[18ch] text-ink lg:text-[5rem] lg:leading-[0.98]">Harry Ashton</h1>
             <p className="caption-mono text-ink-500">
-              Online as <span className="font-semibold text-accent">{site.nickname}</span>
+              Online as <span className="font-semibold text-accent">HASHTON</span>
             </p>
           </div>
-          <p className="mt-8 max-w-xl font-mono text-[0.8125rem] leading-relaxed text-ink-700 md:text-sm">
-            Contract and consulting frontend work — design systems, accessibility, micro-frontends, and shipping with teams that need velocity without chaos.
+          <p className="mt-8 max-w-xl text-[1.125rem] leading-relaxed text-ink/70 md:text-[1.25rem]">
+            Contract and consulting frontend work — design systems, component architecture, and production UI for teams that need senior judgment without the overhead. Founder of Frontend Now.
           </p>
-          <p className="mt-6 max-w-xl text-[1.125rem] leading-relaxed text-ink-800">{site.tagline}</p>
 
-          <p className="caption-mono mt-8 border-y border-ink py-4 leading-relaxed text-ink-600 md:mt-10">
+          <p className="caption-mono mt-8 border-y border-ink/10 py-4 text-[0.8125rem] leading-relaxed text-ink-600 md:mt-10 md:text-caption">
             {site.location}. {site.stats.yearsExperience} years shipping UI. Open to contract, consulting, or senior IC roles.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3 md:mt-10 md:gap-4">
-            <Button variant="accent" asChild>
-              <Link href="#contact">Hire me</Link>
-            </Button>
-            <Button asChild>
-              <Link href="#contact">Contract & consulting</Link>
-            </Button>
-            <Button variant="ghost" asChild>
-              <Link href="#work">Selected work</Link>
-            </Button>
+          <div className="mt-8 md:mt-10">
+            <div className="inline-flex flex-wrap items-stretch gap-2 rounded-2xl border border-ink/10 bg-muted p-2">
+              <Button variant="accent" className="rounded-xl" asChild>
+                <Link href="#contact" className="inline-flex items-center gap-2">
+                  <Mail className="size-4" aria-hidden />
+                  Hire me
+                </Link>
+              </Button>
+              <Button className="rounded-xl" asChild>
+                <Link href="#contact" className="inline-flex items-center gap-2">
+                  <Briefcase className="size-4" aria-hidden />
+                  Contract & consulting
+                </Link>
+              </Button>
+              <Button variant="ghost" className="rounded-xl" asChild>
+                <Link href="#work" className="inline-flex items-center gap-2">
+                  <ArrowRight className="size-4" aria-hidden />
+                  See my work
+                </Link>
+              </Button>
+            </div>
           </div>
         </Reveal>
 

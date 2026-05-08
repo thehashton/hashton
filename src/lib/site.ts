@@ -7,13 +7,13 @@ export const site = {
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
     "https://hashton.vercel.app",
-  location: "United States, remote",
+  location: "United Kingdom, remote",
   email: "hello@learnfrontendnow.com",
   links: {
     linkedin: "https://www.linkedin.com/in/harryfen/",
     github: "https://github.com/thehashton/",
     x: "https://x.com/TheHashton",
-    youtube: "https://www.youtube.com/@FrontendNow",
+    youtube: "https://www.youtube.com/@LearnFrontendNow",
     tiktok: "https://www.tiktok.com/@thehashton",
     instagram: "https://www.instagram.com/thehashton/",
   },

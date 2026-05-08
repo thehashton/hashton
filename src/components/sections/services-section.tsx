@@ -19,7 +19,7 @@ const pillars = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="services" className="scroll-mt-28 w-full min-w-0 border-b border-ink/10 bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="What I do" />
@@ -31,7 +31,7 @@ export function ServicesSection() {
         <div className="mt-14 grid gap-8 md:grid-cols-3">
           {pillars.map((p, i) => (
             <Reveal key={p.title} delay={i * 0.06}>
-              <article className="flex h-full flex-col border-2 border-ink bg-paper p-8 shadow-[8px_8px_0_0_#0a0a0a]">
+              <article className="flex h-full flex-col rounded-xl border border-ink/10 bg-surface p-8 shadow-card transition-shadow hover:shadow-card-hover">
                 <p className="caption-mono text-accent">{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="mt-4 font-sans text-3xl font-bold tracking-tight text-ink">{p.title}</h3>
                 <p className="mt-6 text-[1.125rem] leading-relaxed text-ink-800">{p.body}</p>

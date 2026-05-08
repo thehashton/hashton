@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 
 export function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-28 w-full min-w-0 border-b-2 border-ink bg-paper py-14 md:py-24 lg:py-28">
+    <section id="about" className="scroll-mt-28 w-full min-w-0 border-b border-ink/10 bg-paper py-14 md:py-24 lg:py-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="About" />
@@ -30,7 +30,7 @@ export function AboutSection() {
               </p>
             </div>
 
-            <aside className="flex flex-col gap-6 border-2 border-ink bg-paper p-8 shadow-[8px_8px_0_0_#0a0a0a]">
+            <aside className="flex flex-col gap-6 rounded-xl border border-ink/10 bg-surface p-8 shadow-card">
               <Stat label="Years in frontend" value={`${site.stats.yearsExperience}`} />
               <Stat label="Engagement types" value="Contract · consulting · senior IC" />
               <Stat label="Latest leadership role" value="Lead Frontend, EO Charging" />
@@ -45,7 +45,7 @@ export function AboutSection() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border-b border-ink/15 pb-5 last:border-0 last:pb-0">
+    <div className="border-b border-ink/10 pb-5 last:border-0 last:pb-0">
       <p className="caption-mono text-ink-500">{label}</p>
       <p className="mt-2 font-sans text-xl font-bold tracking-tight text-ink">{value}</p>
     </div>

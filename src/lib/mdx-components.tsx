@@ -11,7 +11,7 @@ export const mdxComponents: MDXComponentMap = {
   h2: ({ className, ...props }) => (
     <h2
       className={cn(
-        "font-sans text-[2.5rem] leading-[1.05] mt-14 mb-6 border-b border-ink pb-3 font-bold tracking-tight first:mt-0",
+        "font-sans text-[2.5rem] leading-[1.05] mt-14 mb-6 border-b border-ink/10 pb-3 font-bold tracking-tight first:mt-0",
         className,
       )}
       {...props}
@@ -32,7 +32,7 @@ export const mdxComponents: MDXComponentMap = {
   ul: ({ className, ...props }) => (
     <ul
       className={cn(
-        "mb-6 ml-1 max-w-prose list-none space-y-3 border border-ink bg-paper p-6 shadow-[4px_4px_0_0_#0a0a0a] text-[1.125rem] leading-relaxed text-ink-800",
+        "mb-6 ml-1 max-w-prose list-none space-y-3 rounded-xl border border-ink/10 bg-surface p-6 shadow-card text-[1.125rem] leading-relaxed text-ink-800",
         className,
       )}
       {...props}
@@ -44,7 +44,7 @@ export const mdxComponents: MDXComponentMap = {
   a: ({ className, href, ...props }) => {
     const isExternal = href?.startsWith("http");
     const cnCls = cn(
-      "font-semibold text-ink underline decoration-accent underline-offset-4 hover:bg-ink hover:text-paper",
+      "font-semibold text-ink underline decoration-accent/60 underline-offset-4 transition-colors hover:text-accent-600",
       className,
     );
     if (href && !isExternal) {

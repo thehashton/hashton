@@ -49,11 +49,11 @@ export default async function WorkCaseStudyPage({
 
   return (
     <article className={cn(shellProseClass, "py-14 md:py-20 lg:py-24")}>
-      <Link href="/#work" className="caption-mono text-ink-600 hover:bg-ink hover:text-paper">
+      <Link href="/#work" className="caption-mono text-ink-600 transition-colors hover:text-accent-600">
         ← Back to selected work
       </Link>
 
-      <header className="mt-10 border-b-2 border-ink pb-10">
+      <header className="mt-10 border-b border-ink/10 pb-10">
         <p className="caption-mono text-accent">{page.frontmatter.year}</p>
         <h1 className="mt-4 font-sans text-[2.75rem] font-bold leading-[1.05] tracking-tight text-ink md:text-[3.5rem]">
           {page.frontmatter.title}

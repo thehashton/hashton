@@ -5,15 +5,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap border-2 border-ink bg-paper px-5 py-3 font-mono text-caption font-semibold tracking-[0.16em] uppercase shadow-brutal-sm transition-[transform,box-shadow,background-color,color] duration-150 hover:-translate-x-px hover:-translate-y-px hover:bg-ink hover:text-paper active:translate-x-[3px] active:translate-y-[3px] active:shadow-none disabled:pointer-events-none disabled:opacity-40",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg px-5 py-2.5 font-sans text-sm font-semibold tracking-tight shadow-sm transition-[background-color,box-shadow,color] duration-150 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "",
+        default: "border border-transparent bg-ink text-paper hover:bg-ink/90 hover:shadow-md",
         accent:
-          "min-h-12 min-w-[9rem] bg-accent px-6 py-3.5 text-paper hover:bg-ink hover:text-paper border-ink shadow-[8px_8px_0_0_#0a0a0a]",
-        ghost:
-          "border-transparent bg-transparent shadow-none hover:translate-x-0 hover:translate-y-0 hover:bg-ink/5 hover:text-ink hover:shadow-none active:translate-x-0 active:translate-y-0",
+          "min-h-11 min-w-[9rem] border border-transparent bg-accent text-accent-foreground hover:bg-accent-600 hover:shadow-md",
+        outline:
+          "border border-ink/15 bg-transparent text-ink shadow-none hover:bg-ink/5 hover:shadow-sm",
+        ghost: "border border-transparent bg-transparent text-ink shadow-none hover:bg-ink/5",
       },
     },
     defaultVariants: {

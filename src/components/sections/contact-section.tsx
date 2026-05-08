@@ -90,7 +90,7 @@ export function ContactSection() {
                         href={s.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="invert-hover flex items-center justify-center gap-2.5 border-2 border-ink px-4 py-4 font-mono text-caption font-semibold tracking-[0.14em] uppercase"
+                        className="flex items-center justify-center gap-2.5 rounded-full border border-ink/10 bg-muted px-4 py-4 font-mono text-caption font-semibold tracking-[0.14em] text-ink uppercase transition-colors hover:bg-ink hover:text-paper"
                       >
                         <SocialBrandIcon brand={s.brand} className="size-5 shrink-0" />
                         {s.label}
@@ -104,7 +104,7 @@ export function ContactSection() {
             <Reveal delay={0.06}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="border-2 border-ink bg-paper p-8 shadow-[8px_8px_0_0_#0a0a0a] md:p-10"
+                className="rounded-2xl border border-ink/10 bg-surface p-8 shadow-card md:p-10"
               >
                 <div className="space-y-6">
                   <div>
