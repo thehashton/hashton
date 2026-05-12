@@ -83,8 +83,35 @@ export default async function WorkCaseStudyPage({
             <h1 className="mt-4 font-sans text-[2.75rem] font-bold leading-[1.05] tracking-tight text-ink md:text-[3.5rem]">
               {page.frontmatter.title}
             </h1>
-            <div className="caption-mono mt-8 leading-relaxed text-ink-700">
-              {page.frontmatter.role} — {page.frontmatter.stack}
+            <div className="mt-8 flex flex-col gap-3">
+              <div className="flex flex-wrap gap-1.5">
+                {page.frontmatter.role.split(/,\s*/).map((raw, idx) => {
+                  const part = raw.trim();
+                  if (!part) return null;
+                  return (
+                    <span
+                      key={`role-${idx}`}
+                      className="caption-mono inline-flex items-center rounded-full border border-ink/10 bg-muted px-2.5 py-1 text-ink"
+                    >
+                      {part}
+                    </span>
+                  );
+                })}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {page.frontmatter.stack.split(/,\s*/).map((raw, idx) => {
+                  const tag = raw.trim();
+                  if (!tag) return null;
+                  return (
+                    <span
+                      key={`stack-${idx}`}
+                      className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1.5 font-mono text-[10px] font-semibold uppercase leading-none tracking-[0.14em] text-accent sm:px-3 sm:text-[11px]"
+                    >
+                      {tag}
+                    </span>
+                  );
+                })}
+              </div>
             </div>
             <p className="mt-8 max-w-2xl text-[1.2rem] leading-relaxed text-ink-800">{page.frontmatter.excerpt}</p>
           </div>

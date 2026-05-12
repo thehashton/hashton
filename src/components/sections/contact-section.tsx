@@ -183,7 +183,7 @@ export function ContactSection() {
                     ) : null}
                   </div>
                 </div>
-                <Button type="submit" variant="accent" className="mt-10 w-full md:w-auto" disabled={pending}>
+                <Button type="submit" variant="accent" className="mt-10 min-h-14 w-full px-10 md:w-auto md:px-12" disabled={pending}>
                   {pending ? "Sending…" : "Send message"}
                 </Button>
               </form>

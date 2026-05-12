@@ -27,18 +27,21 @@ export function Footer() {
           </div>
           <div>
             <p className="caption-mono mb-4 text-ink-600">Elsewhere</p>
-            <ul className="grid gap-2 font-mono text-caption tracking-[0.14em] uppercase">
+            <ul className="grid grid-cols-2 gap-x-2 gap-y-2 font-mono text-caption tracking-[0.14em] uppercase">
               {socialPlatforms.map((s) => (
-                <li key={s.id}>
+                <li key={s.id} className="min-w-0">
                   <Link
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={s.label || "X"}
-                    className="inline-flex min-w-[11rem] items-center gap-3 rounded-full border border-ink/10 bg-muted px-3 py-2 transition-colors hover:bg-strong hover:text-on-strong sm:min-w-[12rem]"
+                    className={cn(
+                      "inline-flex w-full min-w-0 items-center gap-2 overflow-hidden rounded-full border border-ink/10 bg-muted px-2.5 py-2 transition-colors hover:bg-strong hover:text-on-strong max-sm:justify-center sm:gap-3 sm:px-3",
+                      s.label ? "sm:justify-start" : "justify-center gap-0 px-3 sm:gap-0",
+                    )}
                   >
                     <SocialBrandIcon brand={s.brand} className="size-4 shrink-0" />
-                    {s.label ? s.label : null}
+                    {s.label ? <span className="min-w-0 truncate">{s.label}</span> : null}
                   </Link>
                 </li>
               ))}

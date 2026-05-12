@@ -11,7 +11,6 @@ import { headerShellClass } from "@/lib/layout-shell";
 import { sectionNav } from "@/lib/nav";
 import { contactHref, logoHref, sectionHref } from "@/lib/nav-href";
 import { site } from "@/lib/site";
-import { MatchSystemThemeButton, ThemeToggle } from "@/components/theme/theme-controls";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -58,9 +57,9 @@ function NavLinks({
 }
 
 const HEADER_SOCIAL = [
-  { href: site.links.x, label: "X", Icon: IconX, iconClassName: "scale-[1.12]" },
-  { href: site.links.github, label: "GitHub", Icon: IconGithub, iconClassName: "scale-[0.84]" },
-  { href: site.links.linkedin, label: "LinkedIn", Icon: IconLinkedIn, iconClassName: "scale-[0.9]" },
+  { href: site.links.x, label: "X", Icon: IconX, iconClassName: "scale-[0.97]" },
+  { href: site.links.github, label: "GitHub", Icon: IconGithub, iconClassName: "scale-[1.04]" },
+  { href: site.links.linkedin, label: "LinkedIn", Icon: IconLinkedIn, iconClassName: "scale-[1.02]" },
   { href: site.links.instagram, label: "Instagram", Icon: IconInstagram, iconClassName: "scale-[0.97]" },
   { href: site.links.youtube, label: "YouTube", Icon: IconYoutube, iconClassName: "scale-[1.14]" },
 ] as const;
@@ -75,7 +74,7 @@ export function Header() {
         <div
           className={cn(
             headerShellClass,
-            "flex items-center justify-between gap-3 py-3 md:gap-4 md:py-4 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:gap-x-4 xl:gap-x-6",
+            "flex items-center justify-between gap-2 py-2.5 sm:gap-3 sm:py-3 md:gap-4 md:py-4 lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto] lg:items-center lg:gap-x-4 lg:py-4 xl:gap-x-6",
           )}
         >
           <Link
@@ -85,11 +84,11 @@ export function Header() {
           >
             <Image
               src="/images/logos/hashton-logo.png"
-              alt="Hashton"
+              alt=""
               width={841}
               height={267}
               priority
-              className="h-14 w-auto max-w-[min(34rem,90vw)] object-contain object-left sm:h-20 md:h-24 lg:h-[6.5rem]"
+              className="h-12 w-auto max-w-[min(14rem,68vw)] object-contain object-left sm:h-16 sm:max-w-[min(19rem,78vw)] md:h-[4.75rem] lg:h-[6.75rem] lg:max-w-[min(36rem,92vw)]"
             />
           </Link>
 
@@ -97,7 +96,7 @@ export function Header() {
             <NavLinks pathname={pathname} className="flex max-h-11 max-w-full justify-center py-1" />
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 md:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
             {HEADER_SOCIAL.map(({ href, label, Icon, iconClassName }) => (
               <Tooltip key={href}>
                 <TooltipTrigger asChild>
@@ -116,20 +115,20 @@ export function Header() {
                 </TooltipContent>
               </Tooltip>
             ))}
-            <Button variant="accent" className="hidden shrink-0 lg:inline-flex" asChild>
-              <Link href={contactHref(pathname)} className="inline-flex items-center gap-2">
+            <Button variant="accent" className="hidden shrink-0 !min-h-11 !px-5 !py-2 !text-base lg:inline-flex" asChild>
+              <Link href={contactHref(pathname)} className="inline-flex items-center gap-1.5">
                 <Mail className="size-4" aria-hidden />
                 Hire me
               </Link>
             </Button>
             <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                className="rounded-md border border-ink/10 px-3 shadow-sm lg:hidden"
+              <button
+                type="button"
+                className="inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-ink/10 bg-paper/80 text-ink shadow-sm transition-colors hover:bg-ink/5 active:bg-ink/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink/30 lg:hidden"
                 aria-label="Open menu"
               >
-                <Menu className="size-5" />
-              </Button>
+                <Menu className="size-4" aria-hidden />
+              </button>
             </SheetTrigger>
           </div>
         </div>
@@ -142,35 +141,51 @@ export function Header() {
             </p>
           </div>
           <NavLinks pathname={pathname} variant="drawer" onNavigate={() => setOpen(false)} />
-          <div className="mt-6 flex flex-col gap-3 border-t border-ink/10 pt-6">
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-600">Appearance</p>
-            <div className="flex flex-wrap items-center gap-3">
-              <ThemeToggle className="lg:hidden" />
-              <MatchSystemThemeButton onNavigate={() => setOpen(false)} />
-            </div>
-          </div>
-          <div className="mt-auto flex flex-wrap gap-3 border-t border-ink/10 pt-6">
-            <SheetClose asChild>
-              <Button asChild variant="accent">
-                <Link href={contactHref(pathname)}>Contact</Link>
-              </Button>
-            </SheetClose>
-            {HEADER_SOCIAL.map(({ href, label, Icon, iconClassName }) => (
-              <SheetClose key={href} asChild>
-                <Button asChild>
+          <div className="mt-auto flex flex-col gap-8 border-t border-ink/10 pt-6">
+            <div className="flex flex-col gap-3">
+              <p className="caption-mono text-ink-600">Contact</p>
+              <SheetClose asChild>
+                <Button
+                  asChild
+                  variant="accent"
+                  className="w-full !min-w-0 justify-center !py-3 !text-base"
+                >
                   <Link
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2"
-                    aria-label={label}
+                    href={contactHref(pathname)}
+                    className="inline-flex w-full items-center justify-center gap-2"
                   >
-                    <Icon className={cn("size-4 shrink-0 origin-center", iconClassName)} />
-                    {label === "X" ? null : label}
+                    <Mail className="size-5 shrink-0" aria-hidden />
+                    Contact
                   </Link>
                 </Button>
               </SheetClose>
-            ))}
+            </div>
+            <div className="grid w-full grid-cols-2 gap-2 sm:gap-3">
+              {HEADER_SOCIAL.map(({ href, label, Icon, iconClassName }, i) => (
+                <div
+                  key={href}
+                  className={cn(
+                    "min-w-0",
+                    i === HEADER_SOCIAL.length - 1 && "col-span-2",
+                  )}
+                >
+                  <SheetClose asChild>
+                    <Button asChild className="w-full justify-center">
+                      <Link
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex w-full min-w-0 items-center justify-center gap-2 px-1"
+                        aria-label={label}
+                      >
+                        <Icon className={cn("size-4 shrink-0 origin-center", iconClassName)} />
+                        {label === "X" ? null : <span className="min-w-0 truncate">{label}</span>}
+                      </Link>
+                    </Button>
+                  </SheetClose>
+                </div>
+              ))}
+            </div>
           </div>
         </SheetContent>
       </Sheet>

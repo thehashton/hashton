@@ -25,13 +25,14 @@ export type HeroVideoFileProps = {
   src: { mp4: string; webm: string };
   poster: string;
   durationLabel: string;
-  caption: string;
+  caption?: string;
 };
 
 export type HeroVideoMuxProps = {
   kind: "mux";
   playbackId: string;
-  caption: string;
+  /** Shown above the teaser; omit for no label. */
+  caption?: string;
   /** Seconds into the asset for teaser poster and Mux Player poster (default 5). */
   thumbnailTime?: number;
   durationLabel?: string;
@@ -76,7 +77,7 @@ export function HeroVideo(props: HeroVideoProps) {
 
   const isMux = props.kind === "mux";
   const isFile = props.kind === "file";
-  const caption = props.caption;
+  const caption = props.caption?.trim() ?? "";
   const thumbnailTime = isMux ? (props.thumbnailTime ?? 5) : 0;
   const durationLabel = isMux ? (props.durationLabel ?? "Mux") : props.durationLabel;
   const posterResolved = isMux
@@ -216,7 +217,7 @@ export function HeroVideo(props: HeroVideoProps) {
   return (
     <LayoutGroup id={`hero-video-${shellId}`}>
       <div ref={shellRef} className="relative w-full">
-        <p className="caption-mono mb-3 text-ink-600">{caption}</p>
+        {caption ? <p className="caption-mono mb-3 text-ink-600">{caption}</p> : null}
 
         <AnimatePresence initial={false} mode="popLayout">
           {!open ? (
@@ -285,7 +286,9 @@ export function HeroVideo(props: HeroVideoProps) {
                     <h2 id={titleId} className="font-sans text-xl font-bold tracking-tight text-zinc-100 md:text-2xl">
                       Intro — Harry Ashton
                     </h2>
-                    <p className="caption-mono mt-2 text-zinc-400">{caption}</p>
+                    {caption ? (
+                      <p className="caption-mono mt-2 text-zinc-400">{caption}</p>
+                    ) : null}
                   </div>
                   <button
                     ref={closeRef}

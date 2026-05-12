@@ -34,12 +34,21 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: "/images/og-home.png",
+        width: 1024,
+        height: 581,
+        alt: `${site.name} — portfolio preview`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name}`,
     description: site.tagline,
     creator: "@TheHashton",
+    images: ["/images/og-home.png"],
   },
 };
 

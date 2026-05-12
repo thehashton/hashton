@@ -90,22 +90,46 @@ export async function WorkSection() {
                           {w.title}
                         </h3>
                       </div>
-                      <span className="caption-mono w-fit shrink-0 rounded-md border border-ink/10 bg-muted px-2 py-1 text-ink">
-                        {w.role}
-                      </span>
+                      <div className="mt-1 flex w-fit max-w-full flex-wrap gap-1.5 sm:mt-0 sm:max-w-[min(100%,20rem)] sm:justify-end">
+                        {w.role.split(/,\s*/).map((raw, idx) => {
+                          const part = raw.trim();
+                          if (!part) return null;
+                          return (
+                            <span
+                              key={`${w.slug}-role-${idx}`}
+                              className="font-mono inline-flex max-w-full shrink-0 items-center whitespace-nowrap rounded-full border border-ink/10 bg-muted px-3 py-1.5 text-[11px] font-semibold uppercase leading-none tracking-[0.1em] text-ink sm:px-3.5 sm:text-xs"
+                            >
+                              {part}
+                            </span>
+                          );
+                        })}
+                      </div>
                     </div>
 
                     <div className="flex flex-1 flex-col pt-6">
-                      <p className="caption-mono text-accent">{w.stack}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {w.stack.split(/,\s*/).map((raw) => {
+                          const tag = raw.trim();
+                          if (!tag) return null;
+                          return (
+                            <span
+                              key={`${w.slug}-${tag}`}
+                              className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1.5 font-mono text-[10px] font-semibold uppercase leading-none tracking-[0.14em] text-accent sm:px-3 sm:text-[11px]"
+                            >
+                              {tag}
+                            </span>
+                          );
+                        })}
+                      </div>
                       <p className="mt-4 flex-1 text-[1.125rem] leading-relaxed text-ink-800">{w.excerpt}</p>
 
-                      <div className="relative z-[2] mt-8 flex flex-wrap items-center justify-start gap-3">
+                      <div className="relative z-[2] mt-8 flex flex-wrap items-center justify-start gap-4">
                         {w.cardHref ? (
                           <Link
                             href={w.cardHref}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="caption-mono inline-flex w-fit rounded-lg border border-transparent bg-strong px-4 py-3 text-on-strong transition-colors hover:bg-strong/90"
+                            className="font-mono inline-flex min-h-[3.25rem] w-fit items-center gap-2.5 rounded-full border border-transparent bg-strong px-7 py-4 text-sm font-semibold uppercase tracking-[0.14em] text-on-strong shadow-sm transition-colors hover:bg-strong/90 sm:text-base"
                           >
                             {w.cardLabel ?? "Visit site →"}
                           </Link>
@@ -113,10 +137,10 @@ export async function WorkSection() {
                         <Link
                           href={`/work/${w.slug}`}
                           className={cn(
-                            "caption-mono inline-flex w-fit rounded-lg border px-4 py-3 transition-colors",
+                            "font-mono inline-flex min-h-[3.25rem] w-fit items-center gap-2.5 rounded-full px-7 py-4 text-sm font-semibold uppercase tracking-[0.14em] transition-colors sm:text-base",
                             w.cardHref
-                              ? "border-transparent text-ink underline decoration-accent/50 underline-offset-4 hover:text-accent-600"
-                              : "border-ink/15 bg-transparent text-ink group-hover:bg-strong group-hover:text-on-strong",
+                              ? "border-2 border-ink/15 bg-paper text-ink shadow-sm hover:border-accent/45 hover:bg-accent/10 hover:text-accent-600"
+                              : "border border-transparent bg-accent px-8 text-accent-foreground shadow-md hover:bg-accent-600 hover:shadow-lg",
                           )}
                         >
                           {w.cardHref ? "Read overview →" : "Read case study →"}
