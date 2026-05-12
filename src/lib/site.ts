@@ -12,7 +12,7 @@ export const site = {
   links: {
     linkedin: "https://www.linkedin.com/in/harryfen/",
     github: "https://github.com/thehashton/",
-    x: "https://x.com/TheHashton",
+    x: "https://x.com/thehashton",
     youtube: "https://www.youtube.com/@LearnFrontendNow",
     tiktok: "https://www.tiktok.com/@thehashton",
     instagram: "https://www.instagram.com/thehashton/",

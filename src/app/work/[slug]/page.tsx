@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -49,19 +50,45 @@ export default async function WorkCaseStudyPage({
 
   return (
     <article className={cn(shellProseClass, "py-14 md:py-20 lg:py-24")}>
-      <Link href="/#work" className="caption-mono text-ink-600 transition-colors hover:text-accent-600">
+      <Link href="/work" className="caption-mono text-ink-600 transition-colors hover:text-accent-600">
         ← Back to selected work
       </Link>
 
       <header className="mt-10 border-b border-ink/10 pb-10">
-        <p className="caption-mono text-accent">{page.frontmatter.year}</p>
-        <h1 className="mt-4 font-sans text-[2.75rem] font-bold leading-[1.05] tracking-tight text-ink md:text-[3.5rem]">
-          {page.frontmatter.title}
-        </h1>
-        <div className="caption-mono mt-8 leading-relaxed text-ink-700">
-          {page.frontmatter.role} — {page.frontmatter.stack}
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-10">
+          {page.frontmatter.logo ? (
+            <div
+              className={cn(
+                "relative mx-auto h-24 w-28 shrink-0 overflow-hidden rounded-xl border shadow-sm sm:mx-0 sm:h-[6.25rem] sm:w-[7.25rem] md:h-28 md:w-32",
+                page.slug === "inkwarden"
+                  ? "border-zinc-800/90 bg-zinc-950"
+                  : "border-ink/10 bg-paper",
+              )}
+            >
+              <Image
+                src={page.frontmatter.logo}
+                alt={`Logo for ${page.frontmatter.title}`}
+                fill
+                className={cn(
+                  "object-contain",
+                  page.slug === "inkwarden" ? "rounded-xl p-2.5" : "rounded-xl p-2",
+                )}
+                sizes="128px"
+              />
+            </div>
+          ) : null}
+
+          <div className="min-w-0 flex-1">
+            <p className="caption-mono text-accent">{page.frontmatter.year}</p>
+            <h1 className="mt-4 font-sans text-[2.75rem] font-bold leading-[1.05] tracking-tight text-ink md:text-[3.5rem]">
+              {page.frontmatter.title}
+            </h1>
+            <div className="caption-mono mt-8 leading-relaxed text-ink-700">
+              {page.frontmatter.role} — {page.frontmatter.stack}
+            </div>
+            <p className="mt-8 max-w-2xl text-[1.2rem] leading-relaxed text-ink-800">{page.frontmatter.excerpt}</p>
+          </div>
         </div>
-        <p className="mt-8 max-w-2xl text-[1.2rem] leading-relaxed text-ink-800">{page.frontmatter.excerpt}</p>
       </header>
 
       <div className="mt-14">{page.content}</div>

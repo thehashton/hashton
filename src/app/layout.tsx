@@ -14,7 +14,10 @@ import "@/styles/globals.css";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#faf7f1",
+  themeColor: [
+    { color: "#faf7f1", media: "(prefers-color-scheme: light)" },
+    { color: "#0e0d0b", media: "(prefers-color-scheme: dark)" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -46,15 +49,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen w-full bg-paper font-sans text-ink antialiased">
         <JsonLd />
         <Providers>
-          <div className="flex min-h-screen w-full max-w-none flex-col items-stretch">
+          <div className="relative min-h-screen w-full max-w-none">
             <GridOverlay />
-            <Header />
-            <main className="w-full min-w-0 flex-1">{children}</main>
-            <Footer />
+            <div className="relative z-10 flex min-h-screen w-full flex-col items-stretch">
+              <Header />
+              <main className="w-full min-w-0 flex-1">{children}</main>
+              <Footer />
+            </div>
           </div>
         </Providers>
         <Analytics />

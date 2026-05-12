@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+/** OG image stays light for consistent social previews; in-app dark mode does not apply. */
+
 export const alt = "Harry Ashton — Senior Frontend Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

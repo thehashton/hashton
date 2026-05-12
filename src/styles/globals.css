@@ -1,37 +1,85 @@
 @import "tailwindcss";
+
+/* Manual theme (next-themes adds `class="dark"` on <html>). `:is(.dark, .dark *)` avoids `dark:` matching too broadly. */
+@custom-variant dark (&:is(.dark, .dark *));
+
 @import "@fontsource-variable/inter-tight/wght.css";
 @import "@fontsource/jetbrains-mono/latin.css";
+
+/*
+ * Runtime palette → @theme color bridge.
+ * Tailwind v4 resolves literal @theme colors into utilities (e.g. `.bg-paper { #faf7f1 }`),
+ * so swapping only `--color-*` on `html.dark` never affects `bg-paper` / `text-ink` / etc.
+ * Utilities follow `var(--palette-*)` once @theme maps `--color-*` → `var(--palette-*)`.
+ */
+:root {
+  color-scheme: light;
+
+  --palette-paper: #faf7f1;
+  --palette-surface: #ffffff;
+  --palette-muted: #efeae0;
+
+  --palette-ink: #1a1814;
+  --palette-ink-50: #f7f5f1;
+  --palette-ink-100: #ebe6dc;
+  --palette-ink-200: #d4cfc4;
+  --palette-ink-300: #b0aaa0;
+  --palette-ink-400: #8a847a;
+  --palette-ink-500: #6b665e;
+  --palette-ink-600: #524e47;
+  --palette-ink-700: #3f3c37;
+  --palette-ink-800: #2f2d29;
+  --palette-ink-900: #23221f;
+
+  --palette-accent: #c0573a;
+  --palette-accent-50: #fbf0ec;
+  --palette-accent-100: #f4d8cf;
+  --palette-accent-600: #a64a30;
+  --palette-accent-foreground: #ffffff;
+
+  --palette-strong: #1a1814;
+  --palette-on-strong: #faf7f1;
+
+  --palette-shadow-card: 0 1px 2px rgb(20 18 15 / 0.04), 0 4px 16px rgb(20 18 15 / 0.06);
+  --palette-shadow-card-hover: 0 2px 4px rgb(20 18 15 / 0.05), 0 12px 28px rgb(20 18 15 / 0.08);
+  --palette-shadow-input-focus: 0 0 0 3px rgb(192 87 58 / 0.18);
+
+  --selection-bg: var(--palette-ink);
+  --selection-fg: var(--palette-paper);
+}
 
 @theme inline {
   --font-sans: "Inter Tight Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  /* Warm minimal palette */
-  --color-ink: #1a1814;
-  --color-paper: #faf7f1;
-  --color-surface: #ffffff;
-  --color-muted: #efeae0;
+  --color-ink: var(--palette-ink);
+  --color-paper: var(--palette-paper);
+  --color-surface: var(--palette-surface);
+  --color-muted: var(--palette-muted);
 
-  --color-accent: #c0573a;
-  --color-accent-50: #fbf0ec;
-  --color-accent-100: #f4d8cf;
-  --color-accent-600: #a64a30;
-  --color-accent-foreground: #ffffff;
+  --color-accent: var(--palette-accent);
+  --color-accent-50: var(--palette-accent-50);
+  --color-accent-100: var(--palette-accent-100);
+  --color-accent-600: var(--palette-accent-600);
+  --color-accent-foreground: var(--palette-accent-foreground);
 
-  --color-ink-50: #f7f5f1;
-  --color-ink-100: #ebe6dc;
-  --color-ink-200: #d4cfc4;
-  --color-ink-300: #b0aaa0;
-  --color-ink-400: #8a847a;
-  --color-ink-500: #6b665e;
-  --color-ink-600: #524e47;
-  --color-ink-700: #3f3c37;
-  --color-ink-800: #2f2d29;
-  --color-ink-900: #23221f;
+  --color-strong: var(--palette-strong);
+  --color-on-strong: var(--palette-on-strong);
 
-  --shadow-card: 0 1px 2px rgb(20 18 15 / 0.04), 0 4px 16px rgb(20 18 15 / 0.06);
-  --shadow-card-hover: 0 2px 4px rgb(20 18 15 / 0.05), 0 12px 28px rgb(20 18 15 / 0.08);
-  --shadow-input-focus: 0 0 0 3px rgb(192 87 58 / 0.18);
+  --color-ink-50: var(--palette-ink-50);
+  --color-ink-100: var(--palette-ink-100);
+  --color-ink-200: var(--palette-ink-200);
+  --color-ink-300: var(--palette-ink-300);
+  --color-ink-400: var(--palette-ink-400);
+  --color-ink-500: var(--palette-ink-500);
+  --color-ink-600: var(--palette-ink-600);
+  --color-ink-700: var(--palette-ink-700);
+  --color-ink-800: var(--palette-ink-800);
+  --color-ink-900: var(--palette-ink-900);
+
+  --shadow-card: var(--palette-shadow-card);
+  --shadow-card-hover: var(--palette-shadow-card-hover);
+  --shadow-input-focus: var(--palette-shadow-input-focus);
 
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -127,8 +175,8 @@
   }
 
   ::selection {
-    background-color: var(--color-ink);
-    color: var(--color-paper);
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
   }
 
   :focus-visible {
@@ -170,5 +218,49 @@
     background-color: color-mix(in oklab, var(--color-ink) 8%, transparent);
     color: var(--color-ink);
     box-shadow: none;
+  }
+}
+
+/* True dark: override palette tokens (utilities read via @theme → var(--palette-*)). */
+@layer utilities {
+  :root.dark,
+  html.dark {
+    color-scheme: dark;
+
+    --palette-paper: #0e0d0b;
+    --palette-surface: #1a1917;
+    --palette-muted: #232220;
+
+    --palette-ink: #f4f1ea;
+    --palette-ink-50: #191816;
+    --palette-ink-100: #222120;
+    --palette-ink-200: #2e2c28;
+    --palette-ink-300: #45423c;
+    --palette-ink-400: #5c5850;
+    --palette-ink-500: #7a756b;
+    --palette-ink-600: #9a9488;
+    --palette-ink-700: #bab4a8;
+    --palette-ink-800: #dad4c8;
+    --palette-ink-900: #f0ebe2;
+
+    --palette-accent: #d66a4f;
+    --palette-accent-50: #261a17;
+    --palette-accent-100: #3d2822;
+    --palette-accent-600: #b8573e;
+    --palette-accent-foreground: #ffffff;
+
+    --palette-strong: #121110;
+    --palette-on-strong: #faf7f1;
+
+    --palette-shadow-card:
+      0 1px 0 rgb(255 255 255 / 0.04) inset, 0 1px 2px rgb(0 0 0 / 0.35),
+      0 6px 20px rgb(0 0 0 / 0.42);
+    --palette-shadow-card-hover:
+      0 1px 0 rgb(255 255 255 / 0.05) inset, 0 4px 8px rgb(0 0 0 / 0.35),
+      0 14px 36px rgb(0 0 0 / 0.48);
+    --palette-shadow-input-focus: 0 0 0 3px rgb(214 106 79 / 0.45);
+
+    --selection-bg: color-mix(in oklab, var(--palette-accent) 38%, var(--palette-surface));
+    --selection-fg: var(--palette-ink);
   }
 }

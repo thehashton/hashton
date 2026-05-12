@@ -6,11 +6,11 @@ export function GridOverlay() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-[250] hidden lg:block"
+      className="pointer-events-none fixed inset-0 z-0 hidden lg:block"
     >
-      <div className={cn(shellClass, "flex h-full border-x border-ink/[0.08]")}>
+      <div className={cn(shellClass, "flex h-full border-x border-ink/10")}>
         {Array.from({ length: 11 }).map((_, i) => (
-          <div key={i} className="flex-1 border-r border-ink/[0.06]" />
+          <div key={i} className="flex-1 border-r border-ink/8" />
         ))}
       </div>
     </div>

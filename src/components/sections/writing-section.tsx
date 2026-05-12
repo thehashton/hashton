@@ -30,10 +30,10 @@ export function WritingSection() {
                   href={post.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex h-full flex-col justify-between rounded-xl border border-ink/10 bg-surface p-6 shadow-card transition-shadow hover:bg-ink hover:text-paper hover:shadow-card-hover"
+                  className="group flex h-full flex-col justify-between rounded-xl border border-ink/10 bg-surface p-6 shadow-card transition-shadow hover:bg-strong hover:text-on-strong hover:shadow-card-hover"
                 >
                   <div>
-                    <p className="caption-mono text-accent transition-colors group-hover:text-paper">{post.topic}</p>
+                    <p className="caption-mono text-accent transition-colors group-hover:text-on-strong">{post.topic}</p>
                     <p className="mt-4 font-sans text-xl font-bold tracking-tight">{post.title}</p>
                   </div>
                   <span className="caption-mono mt-8 inline-flex items-center gap-2 rounded-lg border border-current px-3 py-2">

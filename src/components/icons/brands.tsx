@@ -1,3 +1,60 @@
+import { siInstagram, siX, siYoutube } from "simple-icons";
+
+import { cn } from "@/lib/utils";
+
+export function IconX({
+  className,
+  title,
+}: {
+  className?: string;
+  title?: string;
+}) {
+  return (
+    <svg
+      className={cn("origin-center", className)}
+      viewBox="0 0 24 24"
+      aria-hidden={title ? undefined : true}
+    >
+      {title ? <title>{title}</title> : null}
+      <path fill="currentColor" d={siX.path} />
+    </svg>
+  );
+}
+
+export function IconInstagram({
+  className,
+  title,
+}: {
+  className?: string;
+  title?: string;
+}) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden={title ? undefined : true}>
+      {title ? <title>{title}</title> : null}
+      <path fill="currentColor" d={siInstagram.path} />
+    </svg>
+  );
+}
+
+export function IconYoutube({
+  className,
+  title,
+}: {
+  className?: string;
+  title?: string;
+}) {
+  return (
+    <svg
+      className={cn("origin-center", className)}
+      viewBox="0 0 24 24"
+      aria-hidden={title ? undefined : true}
+    >
+      {title ? <title>{title}</title> : null}
+      <path fill="currentColor" d={siYoutube.path} />
+    </svg>
+  );
+}
+
 export function IconGithub({
   className,
   title,

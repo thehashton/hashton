@@ -28,20 +28,24 @@ const skills = [
 
 export function HeroSkills() {
   return (
-    <div className="border-t border-ink/10 pt-6 md:pt-8">
-      <p className="caption-mono text-ink-600">Stack</p>
-      <ul className="mt-4 grid w-full grid-cols-3 gap-3 sm:grid-cols-5 md:grid-cols-9">
+    <div className="border-t border-ink/10 pt-5 max-sm:pt-6 md:pt-6">
+      <p className="caption-mono text-ink-600 max-sm:text-center sm:text-left">Stack</p>
+      <ul className="mt-4 grid w-full grid-cols-3 gap-x-3 gap-y-4 max-sm:mt-5 sm:mt-4 sm:grid-cols-5 sm:gap-3 md:grid-cols-9">
         {skills.map((s) => (
-          <li key={s.label}>
+          <li key={s.label} className="min-w-0">
             <Tooltip>
               <TooltipTrigger asChild>
                 <button
                   type="button"
                   style={{ ["--brand" as never]: `#${s.icon.hex}` }}
-                  className="group inline-flex aspect-square w-full items-center justify-center rounded-xl border border-ink/10 bg-surface text-[var(--brand)] shadow-sm transition-[transform,box-shadow,border-color,background-color] duration-200 hover:scale-[1.04] hover:[border-color:var(--brand)] hover:[box-shadow:0_14px_34px_-18px_var(--brand)] active:scale-[1.01] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  className="group inline-flex aspect-square w-full items-center justify-center rounded-2xl border border-ink/10 bg-surface p-2 text-[var(--brand)] shadow-sm transition-[transform,box-shadow,border-color,background-color] duration-200 hover:scale-[1.02] hover:[border-color:var(--brand)] hover:[box-shadow:0_14px_34px_-18px_var(--brand)] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:rounded-xl sm:p-1.5 sm:hover:scale-[1.04] sm:active:scale-[1.01] md:p-2"
                   aria-label={s.label}
                 >
-                  <svg className="size-6 transition-transform duration-200 group-hover:rotate-[-4deg] md:size-7" viewBox="0 0 24 24" aria-hidden>
+                  <svg
+                    className="size-8 shrink-0 transition-transform duration-200 group-hover:rotate-[-4deg] sm:size-6 md:size-7"
+                    viewBox="0 0 24 24"
+                    aria-hidden
+                  >
                     <path fill="currentColor" d={s.icon.path} />
                   </svg>
                 </button>

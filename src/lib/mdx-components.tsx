@@ -11,7 +11,7 @@ export const mdxComponents: MDXComponentMap = {
   h2: ({ className, ...props }) => (
     <h2
       className={cn(
-        "font-sans text-[2.5rem] leading-[1.05] mt-14 mb-6 border-b border-ink/10 pb-3 font-bold tracking-tight first:mt-0",
+        "font-sans text-[clamp(2.75rem,5vw,3.75rem)] leading-[1.05] mt-14 mb-6 border-b border-ink/10 pb-3 font-bold tracking-tight first:mt-0",
         className,
       )}
       {...props}

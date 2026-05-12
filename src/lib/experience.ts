@@ -3,6 +3,8 @@ export type ExperienceItem = {
   role: string;
   company: string;
   href?: string;
+  /** Square mark shown in compact timelines (public path). */
+  logo?: string;
   period: string;
   location: string;
   summary: string;
@@ -11,9 +13,10 @@ export type ExperienceItem = {
 export const experience: ExperienceItem[] = [
   {
     id: "fen",
-    role: "Co-Founder",
+    role: "Co-Founder & Lead Coach",
     company: "Front End Now",
     href: "https://learnfrontendnow.com",
+    logo: "/images/logos/front-end-now.png",
     period: "Mar 2023 — Present",
     location: "Remote",
     summary:
@@ -24,6 +27,7 @@ export const experience: ExperienceItem[] = [
     role: "Lead Frontend Developer",
     company: "EO Charging",
     href: "https://www.linkedin.com/company/eo-charging",
+    logo: "/images/logos/eo-charging.png",
     period: "Sep 2022 — May 2025",
     location: "Stowmarket, UK, remote",
     summary:
@@ -34,6 +38,7 @@ export const experience: ExperienceItem[] = [
     role: "Senior Product Engineer",
     company: "THRIVE LXP",
     href: "https://www.linkedin.com/company/thrivelearning",
+    logo: "/images/logos/thrive-lxp.png",
     period: "Jun 2020 — Sep 2022",
     location: "Nottingham, UK, remote",
     summary:
@@ -44,6 +49,7 @@ export const experience: ExperienceItem[] = [
     role: "Mid Frontend Developer",
     company: "JH",
     href: "https://www.linkedin.com/company/jh",
+    logo: "/images/logos/jh.png",
     period: "Mar 2018 — Jul 2020",
     location: "Nottingham, UK",
     summary:
@@ -54,6 +60,7 @@ export const experience: ExperienceItem[] = [
     role: "Frontend Web Developer",
     company: "Roller Agency",
     href: "https://www.linkedin.com/company/roller-agency",
+    logo: "/images/logos/roller-agency.png",
     period: "Apr 2017 — Mar 2018",
     location: "Nottingham, UK",
     summary:
@@ -64,6 +71,7 @@ export const experience: ExperienceItem[] = [
     role: "Junior Frontend Developer",
     company: "Muscle Foods Ltd",
     href: "https://www.linkedin.com/company/muscle-foods-limited",
+    logo: "/images/logos/muscle-foods.png",
     period: "Dec 2015 — Apr 2017",
     location: "Nottingham, UK",
     summary:

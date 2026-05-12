@@ -11,11 +11,11 @@ import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   return (
-    <section id="hero" className="scroll-mt-28 w-full min-w-0 overflow-x-clip border-b border-ink/10 bg-paper">
+    <section id="home" className="scroll-mt-28 w-full min-w-0 overflow-x-clip border-b border-ink/10 bg-paper">
       <div
         className={cn(
           shellClass,
-          "grid w-full grid-cols-1 gap-y-8 py-12 md:gap-y-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-x-12 lg:gap-y-12 lg:items-center lg:py-24",
+          "grid w-full grid-cols-1 gap-y-8 pt-12 pb-8 md:gap-y-12 md:pt-16 md:pb-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-x-12 lg:gap-y-12 lg:items-center lg:pt-24 lg:pb-7",
         )}
       >
         <Reveal className="min-w-0">
@@ -30,7 +30,7 @@ export function HeroSection() {
           </p>
 
           <p className="caption-mono mt-8 border-y border-ink/10 py-4 text-[0.8125rem] leading-relaxed text-ink-600 md:mt-10 md:text-caption">
-            {site.location}. {site.stats.yearsExperience} years shipping ui. Open to contract, consulting, or senior IC roles.
+            {site.location}. {site.stats.yearsExperience} years shipping ui. Open to contract, consulting, or lead/senior roles.
           </p>
 
           <div className="mt-8 md:mt-10">
@@ -41,19 +41,19 @@ export function HeroSection() {
               )}
             >
               <Button variant="accent" className="w-full shrink-0 rounded-xl md:w-auto" asChild>
-                <Link href="#contact" className="inline-flex items-center justify-center gap-2">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2">
                   <Mail className="size-4" aria-hidden />
                   Hire me
                 </Link>
               </Button>
               <Button className="w-full shrink-0 rounded-xl md:w-auto" asChild>
-                <Link href="#contact" className="inline-flex items-center justify-center gap-2">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2">
                   <Briefcase className="size-4" aria-hidden />
                   Contract & consulting
                 </Link>
               </Button>
               <Button variant="ghost" className="w-full shrink-0 rounded-xl md:w-auto" asChild>
-                <Link href="#work" className="inline-flex items-center justify-center gap-2">
+                <Link href="/work" className="inline-flex items-center justify-center gap-2">
                   <ArrowRight className="size-4" aria-hidden />
                   See my work
                 </Link>

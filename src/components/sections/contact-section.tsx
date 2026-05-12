@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { toast } from "sonner";
@@ -15,8 +15,28 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { site } from "@/lib/site";
 import { socialPlatforms } from "@/lib/social-platforms";
+import { cn } from "@/lib/utils";
+
+/** Brand-forward tiles for the contact “Social grid” (footer keeps neutral chips). */
+const CONTACT_SOCIAL_TILE: Record<
+  (typeof socialPlatforms)[number]["id"],
+  string
+> = {
+  youtube:
+    "border-transparent bg-[#FF0000] text-white shadow-sm hover:bg-[#e60000] hover:text-white focus-visible:outline-white/80",
+  tiktok:
+    "border-transparent bg-[#000000] text-white shadow-sm hover:bg-zinc-900 hover:text-white focus-visible:outline-white/80",
+  instagram:
+    "border-transparent bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F58529] text-white shadow-sm hover:opacity-95 hover:text-white focus-visible:outline-white/80",
+  x: "border-transparent bg-[#000000] text-white shadow-sm hover:bg-zinc-900 hover:text-white focus-visible:outline-white/80",
+  linkedin:
+    "border-transparent bg-[#0A66C2] text-white shadow-sm hover:bg-[#084d94] hover:text-white focus-visible:outline-white/80",
+  github:
+    "border-transparent bg-[#24292f] text-white shadow-sm hover:bg-[#1a1e22] hover:text-white focus-visible:outline-white/80",
+};
 
 const schema = z.object({
   name: z.string().min(2, "Name is too short"),
@@ -26,7 +46,22 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
+/** Matches `grid-cols-2 sm:grid-cols-3` so tooltip side follows the visual row. */
+function useContactSocialGridColumns(): 2 | 3 {
+  return useSyncExternalStore(
+    (onStoreChange) => {
+      if (typeof window === "undefined") return () => undefined;
+      const mq = window.matchMedia("(min-width: 640px)");
+      mq.addEventListener("change", onStoreChange);
+      return () => mq.removeEventListener("change", onStoreChange);
+    },
+    () => (typeof window !== "undefined" && window.matchMedia("(min-width: 640px)").matches ? 3 : 2),
+    () => 2,
+  );
+}
+
 export function ContactSection() {
+  const gridCols = useContactSocialGridColumns();
   const [pending, setPending] = useState(false);
 
   const form = useForm<FormValues>({
@@ -67,7 +102,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-28 w-full min-w-0 bg-paper py-14 md:py-24 lg:py-28">
+    <section id="contact" className="scroll-mt-28 w-full min-w-0 bg-paper pt-8 pb-14 md:pt-10 md:pb-24 lg:pt-10 lg:pb-28">
       <div className={shellClass}>
         <Reveal>
           <SectionLabel label="Contact" />
@@ -84,19 +119,38 @@ export function ContactSection() {
               <div className="mt-10">
                 <p className="caption-mono text-ink-600">Social grid</p>
                 <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  {socialPlatforms.map((s) => (
-                    <li key={s.id}>
-                      <Link
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2.5 rounded-full border border-ink/10 bg-muted px-4 py-4 font-mono text-caption font-semibold tracking-[0.14em] text-ink uppercase transition-colors hover:bg-ink hover:text-paper"
-                      >
-                        <SocialBrandIcon brand={s.brand} className="size-5 shrink-0" />
-                        {s.label}
-                      </Link>
-                    </li>
-                  ))}
+                  {socialPlatforms.map((s, index) => {
+                    const row = Math.floor(index / gridCols);
+                    const tooltipSide = row % 2 === 0 ? "top" : "bottom";
+                    return (
+                      <li key={s.id}>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <Link
+                              href={s.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label={s.label ? `${s.label} — ${s.channelName}` : `X — ${s.channelName}`}
+                              className={cn(
+                                "flex min-h-[3.25rem] items-center justify-center gap-2 rounded-full border px-4 py-3 font-mono text-caption font-semibold tracking-[0.14em] uppercase transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+                                CONTACT_SOCIAL_TILE[s.id],
+                              )}
+                            >
+                              <SocialBrandIcon brand={s.brand} className="size-5 shrink-0" />
+                              {s.label ? <span>{s.label}</span> : null}
+                            </Link>
+                          </TooltipTrigger>
+                          <TooltipContent
+                            side={tooltipSide}
+                            sideOffset={8}
+                            className="max-w-[min(100vw-1rem,20rem)] text-left font-sans text-[11px] font-medium normal-case tracking-normal"
+                          >
+                            {s.channelName}
+                          </TooltipContent>
+                        </Tooltip>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>

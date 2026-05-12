@@ -216,7 +216,7 @@ export function HeroVideo(props: HeroVideoProps) {
               layoutId="hero-video-shell"
               transition={{ layout: layoutTransition }}
               className={cn(
-                "relative w-full min-w-0 overflow-hidden rounded-xl border border-ink/10 bg-ink shadow-xl",
+                "relative w-full min-w-0 overflow-hidden rounded-xl border border-white/10 bg-zinc-950 shadow-xl",
               )}
             >
               <div className="relative aspect-video w-full">
@@ -228,7 +228,7 @@ export function HeroVideo(props: HeroVideoProps) {
                   sizes={teaserImageSizes}
                   className="object-cover"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-t from-ink/55 via-ink/25 to-transparent">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-t from-black/55 via-black/25 to-transparent">
                   <Magnetic strength={0.22} className="cursor-pointer">
                     <motion.button
                       type="button"
@@ -244,9 +244,9 @@ export function HeroVideo(props: HeroVideoProps) {
                       <Play className="size-9 translate-x-0.5 fill-current" aria-hidden />
                     </motion.button>
                   </Magnetic>
-                  <p className="caption-mono text-paper">
+                  <p className="caption-mono text-zinc-100">
                     {durationLabel}
-                    <span className="text-paper/70"> — </span>
+                    <span className="text-zinc-400"> — </span>
                     Play intro
                   </p>
                 </div>
@@ -260,25 +260,25 @@ export function HeroVideo(props: HeroVideoProps) {
               aria-modal="true"
               aria-labelledby={titleId}
               transition={{ layout: layoutTransition }}
-              className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/88 p-4 md:p-10"
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 md:p-10"
             >
               <motion.div
                 initial={reduceMotion ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-paper/15 bg-ink shadow-2xl"
+                className="relative flex w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-white/12 bg-zinc-950 shadow-2xl"
               >
-                <div className="flex items-start justify-between gap-4 border-b border-paper/15 p-4 md:p-5">
+                <div className="flex items-start justify-between gap-4 border-b border-white/12 p-4 md:p-5">
                   <div>
-                    <h2 id={titleId} className="font-sans text-xl font-bold tracking-tight text-paper md:text-2xl">
+                    <h2 id={titleId} className="font-sans text-xl font-bold tracking-tight text-zinc-100 md:text-2xl">
                       Intro — Harry Ashton
                     </h2>
-                    <p className="caption-mono mt-2 text-paper/70">{caption}</p>
+                    <p className="caption-mono mt-2 text-zinc-400">{caption}</p>
                   </div>
                   <button
                     ref={closeRef}
                     type="button"
-                    className="shrink-0 rounded-lg border border-paper/20 bg-paper p-2 text-ink transition-colors hover:bg-paper/90"
+                    className="shrink-0 rounded-lg border border-white/20 bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
                     aria-label="Close video"
                     onClick={() => {
                       setOpen(false);
@@ -293,7 +293,7 @@ export function HeroVideo(props: HeroVideoProps) {
                   </button>
                 </div>
 
-                <div className="relative aspect-video w-full bg-ink">
+                <div className="relative aspect-video w-full bg-black">
                   {mountedPlayer && isMux ? (
                     <MuxPlayer
                       playbackId={props.playbackId}
@@ -326,9 +326,9 @@ export function HeroVideo(props: HeroVideoProps) {
 
                 {isFile ? (
                   <>
-                    <div className="flex flex-col gap-4 border-t border-paper/15 p-4 md:flex-row md:items-center md:justify-between md:px-5 md:py-4">
+                    <div className="flex flex-col gap-4 border-t border-white/12 p-4 md:flex-row md:items-center md:justify-between md:px-5 md:py-4">
                       <div className="flex flex-1 flex-col gap-2">
-                        <label htmlFor={`${shellId}-scrub`} className="caption-mono text-paper/70">
+                        <label htmlFor={`${shellId}-scrub`} className="caption-mono text-zinc-400">
                           Progress
                         </label>
                         <input
@@ -346,7 +346,7 @@ export function HeroVideo(props: HeroVideoProps) {
                       <div className="flex flex-wrap items-center gap-2">
                         <button
                           type="button"
-                          className="rounded-lg border border-paper/20 bg-paper/95 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase transition-colors hover:bg-paper"
+                          className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-white uppercase transition-colors hover:bg-white/20"
                           onClick={togglePlay}
                           aria-label={playing ? "Pause" : "Play"}
                         >
@@ -354,7 +354,7 @@ export function HeroVideo(props: HeroVideoProps) {
                         </button>
                         <button
                           type="button"
-                          className="rounded-lg border border-paper/20 bg-paper/95 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase transition-colors hover:bg-paper"
+                          className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-white uppercase transition-colors hover:bg-white/20"
                           onClick={() => setMuted((m) => !m)}
                           aria-label={muted ? "Unmute" : "Mute"}
                         >
@@ -362,7 +362,7 @@ export function HeroVideo(props: HeroVideoProps) {
                         </button>
                         <button
                           type="button"
-                          className="rounded-lg border border-paper/20 bg-paper/95 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-ink uppercase transition-colors hover:bg-paper"
+                          className="rounded-lg border border-white/20 bg-white/10 px-3 py-2 font-mono text-[10px] tracking-[0.16em] text-white uppercase transition-colors hover:bg-white/20"
                           onClick={() => void videoRef.current?.requestFullscreen?.()}
                           aria-label="Fullscreen"
                         >
@@ -371,12 +371,12 @@ export function HeroVideo(props: HeroVideoProps) {
                       </div>
                     </div>
 
-                    <p className="caption-mono border-t border-paper/15 px-4 py-3 text-paper/60 md:px-5">
+                    <p className="caption-mono border-t border-white/12 px-4 py-3 text-zinc-400 md:px-5">
                       Keys: Space or K (play), M (mute), F (fullscreen), Esc (close)
                     </p>
                   </>
                 ) : (
-                  <p className="caption-mono border-t border-paper/15 px-4 py-3 text-paper/60 md:px-5">
+                  <p className="caption-mono border-t border-white/12 px-4 py-3 text-zinc-400 md:px-5">
                     Keys: Esc (close). Use the player for playback controls.
                   </p>
                 )}

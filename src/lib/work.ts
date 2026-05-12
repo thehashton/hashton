@@ -12,6 +12,12 @@ export type WorkFrontmatter = {
   stack: string;
   excerpt: string;
   order: number;
+  /** Square mark on the work list (public path). */
+  logo?: string;
+  /** When set, the primary card button opens this URL (e.g. live product). */
+  cardHref?: string;
+  /** Label for `cardHref` (defaults to “Visit site →”). */
+  cardLabel?: string;
 };
 
 const WORK_DIR = path.join(process.cwd(), "src/content/work");

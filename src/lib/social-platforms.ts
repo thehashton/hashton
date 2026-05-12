@@ -17,13 +17,45 @@ export type SocialPlatform = {
   label: string;
   href: string;
   brand: SocialBrand;
+  /** Handle or identity shown in contact “Social grid” tooltips. */
+  channelName: string;
 };
 
 export const socialPlatforms: SocialPlatform[] = [
-  { id: "youtube", label: "YouTube", href: site.links.youtube, brand: siYoutube },
-  { id: "tiktok", label: "TikTok", href: site.links.tiktok, brand: siTiktok },
-  { id: "instagram", label: "Instagram", href: site.links.instagram, brand: siInstagram },
-  { id: "x", label: "X", href: site.links.x, brand: siX },
-  { id: "linkedin", label: "LinkedIn", href: site.links.linkedin, brand: "linkedin" },
-  { id: "github", label: "GitHub", href: site.links.github, brand: siGithub },
+  {
+    id: "youtube",
+    label: "YouTube",
+    href: site.links.youtube,
+    brand: siYoutube,
+    channelName: "@LearnFrontendNow",
+  },
+  {
+    id: "tiktok",
+    label: "TikTok",
+    href: site.links.tiktok,
+    brand: siTiktok,
+    channelName: "@thehashton",
+  },
+  {
+    id: "instagram",
+    label: "Instagram",
+    href: site.links.instagram,
+    brand: siInstagram,
+    channelName: "@thehashton",
+  },
+  { id: "x", label: "", href: site.links.x, brand: siX, channelName: "@thehashton" },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: site.links.linkedin,
+    brand: "linkedin",
+    channelName: "Harry Ashton",
+  },
+  {
+    id: "github",
+    label: "GitHub",
+    href: site.links.github,
+    brand: siGithub,
+    channelName: "thehashton",
+  },
 ];

@@ -1,8 +1,8 @@
 import Link from "next/link";
 
+import { FooterSitemap } from "@/components/layout/footer-sitemap";
 import { SocialBrandIcon } from "@/components/social/social-brand-icon";
 import { shellClass } from "@/lib/layout-shell";
-import { sectionNav } from "@/lib/nav";
 import { socialPlatforms } from "@/lib/social-platforms";
 import { cn } from "@/lib/utils";
 
@@ -23,15 +23,7 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2">
           <div>
             <p className="caption-mono mb-4 text-ink-600">Sitemap</p>
-            <ul className="space-y-2 font-mono text-caption tracking-[0.14em] text-ink uppercase">
-              {sectionNav.map((item) => (
-                <li key={item.id}>
-                  <Link href={`#${item.id}`} className="rounded-md px-1 py-0.5 transition-colors hover:bg-ink/5">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <FooterSitemap />
           </div>
           <div>
             <p className="caption-mono mb-4 text-ink-600">Elsewhere</p>
@@ -42,10 +34,11 @@ export function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-w-[11rem] items-center gap-3 rounded-full border border-ink/10 bg-muted px-3 py-2 transition-colors hover:bg-ink hover:text-paper sm:min-w-[12rem]"
+                    aria-label={s.label || "X"}
+                    className="inline-flex min-w-[11rem] items-center gap-3 rounded-full border border-ink/10 bg-muted px-3 py-2 transition-colors hover:bg-strong hover:text-on-strong sm:min-w-[12rem]"
                   >
                     <SocialBrandIcon brand={s.brand} className="size-4 shrink-0" />
-                    {s.label}
+                    {s.label ? s.label : null}
                   </Link>
                 </li>
               ))}
