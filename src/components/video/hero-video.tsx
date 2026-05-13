@@ -24,7 +24,6 @@ export type HeroVideoFileProps = {
   kind: "file";
   src: { mp4: string; webm: string };
   poster: string;
-  durationLabel: string;
   caption?: string;
 };
 
@@ -35,7 +34,6 @@ export type HeroVideoMuxProps = {
   caption?: string;
   /** Seconds into the asset for teaser poster and Mux Player poster (default 5). */
   thumbnailTime?: number;
-  durationLabel?: string;
   /** Override Mux thumbnail URL; defaults to image.mux.com thumbnail at `thumbnailTime`. */
   poster?: string;
 };
@@ -79,7 +77,6 @@ export function HeroVideo(props: HeroVideoProps) {
   const isFile = props.kind === "file";
   const caption = props.caption?.trim() ?? "";
   const thumbnailTime = isMux ? (props.thumbnailTime ?? 5) : 0;
-  const durationLabel = isMux ? (props.durationLabel ?? "Mux") : props.durationLabel;
   const posterResolved = isMux
     ? props.poster ?? muxPosterUrl(props.playbackId, thumbnailTime)
     : props.poster;
@@ -238,14 +235,14 @@ export function HeroVideo(props: HeroVideoProps) {
                   sizes={teaserImageSizes}
                   className="object-cover"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-gradient-to-t from-black/55 via-black/25 to-transparent">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-t from-black/55 via-black/25 to-transparent">
                   <Magnetic strength={0.22} className="cursor-pointer">
                     <motion.button
                       type="button"
                       layout={false}
                       whileHover={reduceMotion ? undefined : { scale: 1.04 }}
                       whileTap={reduceMotion ? undefined : { scale: 0.96 }}
-                      className="flex size-24 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-accent text-accent-foreground shadow-lg transition-colors hover:bg-accent-600"
+                      className="flex size-24 cursor-pointer items-center justify-center rounded-full border border-white/35 bg-white/12 text-white shadow-[inset_0_1px_0_0_rgb(255_255_255_/_0.22),0_10px_40px_-12px_rgb(0_0_0_/_0.45)] backdrop-blur-md transition-[background-color,box-shadow,transform] hover:bg-white/18 hover:shadow-[inset_0_1px_0_0_rgb(255_255_255_/_0.28),0_12px_44px_-10px_rgb(0_0_0_/_0.5)] supports-[backdrop-filter]:bg-white/10"
                       aria-label={
                         isMux ? "Play introduction video (Mux)" : "Play introduction video"
                       }
@@ -254,11 +251,6 @@ export function HeroVideo(props: HeroVideoProps) {
                       <Play className="size-9 translate-x-0.5 fill-current" aria-hidden />
                     </motion.button>
                   </Magnetic>
-                  <p className="caption-mono text-zinc-100">
-                    {durationLabel}
-                    <span className="text-zinc-400"> — </span>
-                    Play intro
-                  </p>
                 </div>
               </div>
             </motion.article>

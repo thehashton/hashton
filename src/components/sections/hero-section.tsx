@@ -41,7 +41,6 @@ export function HeroSection() {
               kind="mux"
               playbackId="KuB2l83CxQCAaUCp9F8H00vhNtrTX011d8K3WiPzpfmjs"
               thumbnailTime={1}
-              durationLabel="01:00"
             />
             <HeroSkills />
           </div>

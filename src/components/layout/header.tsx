@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Menu } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 function NavLinks({
   className,
@@ -115,7 +115,7 @@ export function Header() {
                 </TooltipContent>
               </Tooltip>
             ))}
-            <Button variant="accent" className="hidden shrink-0 !min-h-11 !px-5 !py-2 !text-base lg:inline-flex" asChild>
+            <Button variant="accent" className="hidden shrink-0 !min-h-11 !min-w-0 !px-3.5 !py-2 !text-base lg:inline-flex" asChild>
               <Link href={contactHref(pathname)} className="inline-flex items-center gap-1.5">
                 <Mail className="size-4" aria-hidden />
                 Hire me
@@ -124,21 +124,34 @@ export function Header() {
             <SheetTrigger asChild>
               <button
                 type="button"
-                className="inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-ink/10 bg-paper/80 text-ink shadow-sm transition-colors hover:bg-ink/5 active:bg-ink/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink/30 lg:hidden"
+                className="inline-flex size-11 shrink-0 items-center justify-center rounded-md border border-ink/10 bg-paper/80 text-ink shadow-sm transition-colors hover:bg-ink/5 active:bg-ink/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink/30 lg:hidden"
                 aria-label="Open menu"
               >
-                <Menu className="size-4" aria-hidden />
+                <Menu className="size-6 stroke-[2.25]" aria-hidden />
               </button>
             </SheetTrigger>
           </div>
         </div>
 
         <SheetContent className="gap-6 p-6 sm:gap-8 sm:p-8">
-          <div className="flex flex-col gap-2 border-b border-ink/10 pb-6">
-            <p className="font-sans text-3xl font-bold tracking-tight sm:text-[2rem]">Harry Ashton</p>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-600 sm:text-[0.8125rem]">
-              Navigation
-            </p>
+          <div className="flex items-start justify-between gap-4 border-b border-ink/10 pb-6">
+            <div className="min-w-0 flex-1">
+              <SheetTitle className="font-sans text-3xl font-bold tracking-tight sm:text-[2rem]">
+                Harry Ashton
+              </SheetTitle>
+              <p className="mt-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-ink-600 sm:mt-2.5 sm:text-[0.8125rem]">
+                Navigation
+              </p>
+            </div>
+            <SheetClose asChild>
+              <button
+                type="button"
+                className="inline-flex size-10 shrink-0 items-center justify-center rounded-lg border border-ink/10 bg-paper text-ink shadow-sm transition-colors hover:bg-ink/5 active:bg-ink/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink/30"
+                aria-label="Close menu"
+              >
+                <X className="size-5" aria-hidden />
+              </button>
+            </SheetClose>
           </div>
           <NavLinks pathname={pathname} variant="drawer" onNavigate={() => setOpen(false)} />
           <div className="mt-auto flex flex-col gap-8 border-t border-ink/10 pt-6">
